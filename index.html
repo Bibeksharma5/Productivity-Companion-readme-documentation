@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The complete user guide and tutorial for Productivity Companion, an all-in-one, screen-reader-friendly productivity suite for Windows.">
+<title>Productivity Companion — Complete User Guide &amp; Tutorial (Version 26.1)</title>
+<style>
+  /* ============ Design tokens ============ */
+  :root {
+    color-scheme: light dark;
+
+    /* Light palette */
+    --page-bg: #f6f8fb;
+    --card-bg: #ffffff;
+    --text-main: #101828;
+    --text-muted: #475467;
+    --border-color: #d9e1ec;
+    --accent: #4f46e5;
+    --accent-strong: #3730a3;
+    --accent-soft: #eef2ff;
+    --link: #3730a3;
+    --link-hover: #4f46e5;
+    --kbd-bg: #eef2f7;
+    --kbd-border: #c3cfdd;
+    --code-bg: #f1f4f9;
+    --code-border: #d9e1ec;
+    --note-bg: #eff6ff;
+    --note-border: #2563eb;
+    --note-text: #1e3a8a;
+    --tip-bg: #ecfdf3;
+    --tip-border: #16a34a;
+    --tip-text: #14532d;
+    --warn-bg: #fffbeb;
+    --warn-border: #d97706;
+    --warn-text: #78350f;
+    --info-bg: #faf5ff;
+    --info-border: #9333ea;
+    --info-text: #581c87;
+    --badge-online-bg: #fef2f2;
+    --badge-online-border: #dc2626;
+    --badge-online-text: #991b1b;
+    --badge-offline-bg: #f0fdf4;
+    --badge-offline-border: #16a34a;
+    --badge-offline-text: #166534;
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+    --shadow-md: 0 4px 10px -2px rgba(16, 24, 40, 0.10), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
+    --shadow-lg: 0 12px 24px -6px rgba(16, 24, 40, 0.14);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --header-grad: linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4f46e5 100%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #0b1220;
+      --card-bg: #131c2e;
+      --text-main: #eef2f7;
+      --text-muted: #9aa7bb;
+      --border-color: #2b3a52;
+      --accent: #8b8cf8;
+      --accent-strong: #a5b4fc;
+      --accent-soft: #232a4d;
+      --link: #a5b4fc;
+      --link-hover: #c7d2fe;
+      --kbd-bg: #1d2940;
+      --kbd-border: #3b4d6b;
+      --code-bg: #182338;
+      --code-border: #2b3a52;
+      --note-bg: #14233f;
+      --note-border: #60a5fa;
+      --note-text: #dbeafe;
+      --tip-bg: #0f2a1d;
+      --tip-border: #4ade80;
+      --tip-text: #d1fae5;
+      --warn-bg: #2b2110;
+      --warn-border: #fbbf24;
+      --warn-text: #fef3c7;
+      --info-bg: #251a38;
+      --info-border: #c084fc;
+      --info-text: #f3e8ff;
+      --badge-online-bg: #331418;
+      --badge-online-border: #f87171;
+      --badge-online-text: #fecaca;
+      --badge-offline-bg: #0f2a1d;
+      --badge-offline-border: #4ade80;
+      --badge-offline-text: #d1fae5;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 10px -2px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 12px 24px -6px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  /* ============ Base ============ */
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--page-bg);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  img { max-width: 100%; height: auto; }
+
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    border-radius: 3px;
+  }
+  a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
+
+  /* Highly visible keyboard focus */
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* ============ Skip link ============ */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    display: inline-block;
+    background: var(--accent);
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 0 var(--radius-sm) 0;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    left: 0;
+    color: #ffffff;
+    outline-offset: 0;
+  }
+
+  /* ============ Header ============ */
+  header.hero {
+    background: var(--header-grad);
+    color: #ffffff;
+    padding: 3.25rem 1.5rem 3rem;
+    text-align: center;
+  }
+
+  .hero-inner { max-width: 60rem; margin: 0 auto; }
+
+  .hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .hero .tagline {
+    margin: 0 auto 1.25rem;
+    max-width: 46rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: #e0e7ff;
+  }
+
+  .hero .version-badge,
+  .hero .store-badge {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .hero .store-badge { border-color: rgba(255, 255, 255, 0.6); }
+
+  .hero .quick-facts {
+    margin: 1.5rem auto 0;
+    max-width: 52rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .hero .quick-facts .fact {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* ============ Layout ============ */
+  .layout {
+    display: flex;
+    gap: 2rem;
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    align-items: flex-start;
+  }
+
+  /* Sidebar */
+  aside.toc {
+    flex: 0 0 15.5rem;
+    position: sticky;
+    top: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 1.1rem 1.1rem 1.2rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+
+  aside.toc .toc-title {
+    margin: 0 0 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  aside.toc ol {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.95rem;
+  }
+  aside.toc li { margin: 0.3rem 0; }
+  aside.toc a { text-decoration: none; }
+  aside.toc a:hover { text-decoration: underline; }
+
+  /* Main column */
+  main { flex: 1 1 auto; min-width: 0; }
+
+  /* ============ Sections & headings ============ */
+  section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.6rem 1.7rem;
+    margin-bottom: 1.6rem;
+    scroll-margin-top: 1.2rem;
+  }
+
+  h2 {
+    margin: 0 0 1rem;
+    font-size: 1.65rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+
+  h3 {
+    margin: 1.6rem 0 0.6rem;
+    font-size: 1.22rem;
+    line-height: 1.3;
+    color: var(--accent-strong);
+  }
+
+  h4 {
+    margin: 1.2rem 0 0.4rem;
+    font-size: 1.05rem;
+  }
+
+  p { margin: 0.6rem 0; }
+  ul, ol { margin: 0.6rem 0 0.6rem 1.4rem; padding-left: 0.3rem; }
+  li { margin: 0.35rem 0; }
+
+  strong { font-weight: 700; }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  .back-to-top {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* ============ Feature cards grid ============ */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.9rem;
+    margin: 1rem 0;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .card h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.05rem;
+  }
+  .card p { margin: 0; font-size: 0.95rem; }
+
+  /* ============ Badges ============ */
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    vertical-align: middle;
+    border: 1px solid transparent;
+  }
+  .badge.online {
+    background: var(--badge-online-bg);
+    color: var(--badge-online-text);
+    border-color: var(--badge-online-border);
+  }
+  .badge.offline {
+    background: var(--badge-offline-bg);
+    color: var(--badge-offline-text);
+    border-color: var(--badge-offline-border);
+  }
+
+  /* ============ Callouts ============ */
+  .callout {
+    border-radius: var(--radius-md);
+    border: 1px solid;
+    padding: 0.9rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .callout .callout-title {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .callout.note { background: var(--note-bg); border-color: var(--note-border); color: var(--note-text); }
+  .callout.tip { background: var(--tip-bg); border-color: var(--tip-border); color: var(--tip-text); }
+  .callout.warning { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn-text); }
+  .callout.info { background: var(--info-bg); border-color: var(--info-border); color: var(--info-text); }
+
+  /* ============ kbd & code ============ */
+  kbd {
+    display: inline-block;
+    background: var(--kbd-bg);
+    border: 1px solid var(--kbd-border);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    padding: 0.05rem 0.45rem;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: 0.85em;
+    line-height: 1.5;
+    white-space: nowrap;
+    color: var(--text-main);
+  }
+  code {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 5px;
+    padding: 0.1rem 0.4rem;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: 0.88em;
+  }
+
+  /* ============ Tables ============ */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin: 1rem 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    font-size: 0.97rem;
+  }
+  caption {
+    text-align: left;
+    font-weight: 700;
+    padding: 0.6rem 0.9rem;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    border-bottom: 1px solid var(--border-color);
+  }
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+  }
+  thead th {
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-weight: 700;
+  }
+  tbody tr:last-child th,
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: rgba(79, 70, 229, 0.04); }
+
+  /* ============ Home-screen button list ============ */
+  .button-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+  .button-map .item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 0.95rem;
+    background: var(--page-bg);
+  }
+  .button-map .item .name { font-weight: 700; }
+  .button-map .item p { margin: 0.25rem 0 0; font-size: 0.93rem; color: var(--text-muted); }
+
+  /* ============ Steps list ============ */
+  ol.steps { counter-reset: step; list-style: none; margin-left: 0; padding-left: 0; }
+  ol.steps > li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 2.6rem;
+    margin: 0.7rem 0;
+  }
+  ol.steps > li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* ============ Footer ============ */
+  footer {
+    border-top: 1px solid var(--border-color);
+    background: var(--card-bg);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  footer p { margin: 0.35rem 0; }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; padding-top: 1.2rem; }
+    aside.toc {
+      position: static;
+      flex: 1 1 auto;
+      width: 100%;
+      max-height: none;
+    }
+  }
+
+  /* ============ Print ============ */
+  @media print {
+    aside.toc { display: none; }
+    .skip-link { display: none; }
+    body { background: #ffffff; color: #000000; font-size: 11pt; }
+    section { break-inside: avoid; box-shadow: none; border-color: #999; }
+    a { color: #000; }
+    header.hero { background: #fff; color: #000; border-bottom: 3px solid #333; }
+    .hero .tagline { color: #333; }
+    .hero .version-badge, .hero .store-badge { border-color: #666; color: #333; background: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Productivity Companion</h1>
+    <p class="tagline">
+      Your all-in-one productivity toolkit for Windows: read documents, convert media,
+      chat with AI, transcribe audio, manage notes, and much more — all in one
+      accessible, screen-reader-friendly application.
+    </p>
+    <div>
+      <span class="version-badge">Version 26.1</span>
+      <span class="store-badge">Available on the Microsoft Store</span>
+    </div>
+    <div class="quick-facts">
+      <span class="fact">27 built-in tools</span>
+      <span class="fact">3 interface languages</span>
+      <span class="fact">Light, dark &amp; system themes</span>
+      <span class="fact">Screen reader friendly</span>
+      <span class="fact">Offline-capable</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= LAYOUT ================= -->
+<div class="layout">
+
+  <!-- ================= TABLE OF CONTENTS ================= -->
+  <aside class="toc" aria-labelledby="toc-heading">
+    <p class="toc-title" id="toc-heading">Table of contents</p>
+    <nav aria-label="Table of contents">
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#home-screen">The home screen</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#feature-overview">Feature overview</a></li>
+        <li><a href="#ai-knowledge">AI &amp; knowledge tools</a></li>
+        <li><a href="#documents">Reading &amp; document tools</a></li>
+        <li><a href="#audio-video">Audio &amp; video tools</a></li>
+        <li><a href="#image-tools">Image tools</a></li>
+        <li><a href="#utilities">Everyday utilities</a></li>
+        <li><a href="#shortcuts">Keyboard shortcuts</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#troubleshooting">Tips &amp; troubleshooting</a></li>
+        <li><a href="#feedback">Feedback &amp; support</a></li>
+        <li><a href="#about">About &amp; credits</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main id="main-content">
+
+    <!-- ============ INTRODUCTION ============ -->
+    <section id="introduction" aria-labelledby="introduction-heading">
+      <h2 id="introduction-heading">1. Introduction</h2>
+      <p class="lead">
+        Welcome to <strong>Productivity Companion</strong> — an all-in-one desktop application
+        that brings a useful collection of everyday productivity tools together in a single,
+        simple window. Whether you want to read an e-book aloud, convert a video to audio,
+        generate an image with AI, check the weather, or organize your notes, Productivity
+        Companion has a tool for it.
+      </p>
+      <p>
+        The application is built with <strong>accessibility as a first-class feature</strong>. It works
+        smoothly with keyboard navigation and popular Windows screen readers such as
+        <strong>NVDA</strong>, <strong>JAWS</strong>, and <strong>Narrator</strong>. Controls are clearly labelled,
+        dialogs announce their results, and every feature can be reached without a mouse.
+      </p>
+      <h3>What can you do with it?</h3>
+      <ul>
+        <li><strong>Read and analyze documents</strong> — PDF, EPUB, Word (DOCX), and PowerPoint (PPTX) files with a full-featured accessible reader.</li>
+        <li><strong>Work with AI</strong> — chat with an AI assistant, generate images from text, and get spoken descriptions of pictures.</li>
+        <li><strong>Convert almost anything</strong> — audio, video, images, documents, formats of every kind.</li>
+        <li><strong>Create audio</strong> — convert text to speech, transcribe recordings, record your voice, and edit audio or video files.</li>
+        <li><strong>Stay organized</strong> — manage notes and web links in categories, convert currencies, and check the weather.</li>
+        <li><strong>Know your computer</strong> — view detailed information about your device's hardware and software.</li>
+      </ul>
+      <h3>Internet vs. offline</h3>
+      <p>
+        Some tools need an internet connection (they are marked with an
+        <span class="badge online">Online</span> badge in this guide), while others work fully
+        offline (<span class="badge offline">Offline</span>). Several online tools can be made
+        to work offline by downloading small language models in advance — see
+        <a href="#troubleshooting">Tips &amp; troubleshooting</a>.
+      </p>
+    </section>
+
+    <!-- ============ GETTING STARTED ============ -->
+    <section id="getting-started" aria-labelledby="getting-started-heading">
+      <h2 id="getting-started-heading">2. Getting started</h2>
+
+      <h3>Installation</h3>
+      <p>Productivity Companion is distributed through the <strong>Microsoft Store</strong>:</p>
+      <ol class="steps">
+        <li>Open the <strong>Microsoft Store</strong> on your Windows PC.</li>
+        <li>Search for <strong>Productivity Companion</strong>.</li>
+        <li>Select the app and click <strong>Get</strong> (or <strong>Install</strong>) to download and install it.</li>
+        <li>Launch <strong>Productivity Companion</strong> from the Start menu, the desktop shortcut (if you chose to create one), or directly from the Store.</li>
+      </ol>
+
+      <h3>Your first launch</h3>
+      <p>
+        When the application opens for the first time, a <strong>Welcome dialog</strong> greets you.
+        It introduces the app and offers two buttons:
+      </p>
+      <ul>
+        <li><strong>What's new</strong> — opens the release notes for the current version.</li>
+        <li><strong>Got it</strong> — closes the dialog and takes you to the home screen.</li>
+      </ul>
+      <p>
+        If you do not want to see this dialog every time you start the app, tick the
+        <strong>Don't show this dialog again</strong> checkbox before closing it.
+      </p>
+
+      <div class="callout note">
+        <span class="callout-title">Note</span>
+        On startup, the app may quietly check whether a newer version is available. If an
+        update exists, you will be told to install it from the Microsoft Store. You can turn
+        this automatic check off in <a href="#settings">Settings → General</a>.
+      </div>
+    </section>
+
+    <!-- ============ HOME SCREEN ============ -->
+    <section id="home-screen" aria-labelledby="home-screen-heading">
+      <h2 id="home-screen-heading">3. The home screen</h2>
+      <p>
+        The home screen is the heart of the application. It shows a <strong>list of every tool</strong>.
+        The label above the list explains the most important interaction:
+      </p>
+      <blockquote>
+        <p><em>"Select feature and press enter to open (right click to see more options)"</em></p>
+      </blockquote>
+
+      <h3>Opening a feature</h3>
+      <ol class="steps">
+        <li>Use the <strong>Up</strong> and <strong>Down arrow</strong> keys (or scroll with the mouse) to highlight a tool in the list.</li>
+        <li>Press <kbd>Enter</kbd>, or double-click with the mouse, to open it.</li>
+      </ol>
+      <p>
+        When a feature window opens, the home screen hides. Use the <strong>Back</strong> button
+        (present in every feature window) or press <kbd>Alt</kbd>+<kbd>F4</kbd> to return to the home screen.
+      </p>
+
+      <h3>Reordering features</h3>
+      <p>
+        You can arrange the tools in any order you like, so your most-used tools are at the top:
+      </p>
+      <ol class="steps">
+        <li>Highlight a tool in the list.</li>
+        <li>Press the <strong>Application key</strong> (the menu key on your keyboard), press <kbd>Shift</kbd>+<kbd>F10</kbd>, or right-click with the mouse to open the context menu.</li>
+        <li>Choose one of:
+          <ul>
+            <li><strong>Open feature</strong> — open the selected tool.</li>
+            <li><strong>Move up</strong> / <strong>Move down</strong> — nudge the tool one position.</li>
+            <li><strong>Move top</strong> / <strong>Move bottom</strong> — jump the tool to the very top or bottom of the list.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>
+        Your custom order is remembered between sessions. To go back to alphabetical order at
+        any time, press the <strong>Reset features order</strong> button.
+      </p>
+
+      <h3>Home screen buttons</h3>
+      <p>
+        Below the list you will find the following buttons. The underlined letter in each
+        button label is its <em>access key</em> — hold <kbd>Alt</kbd> and press that letter to
+        activate the button directly from anywhere on the home screen.
+      </p>
+      <div class="button-map">
+        <div class="item">
+          <span class="name">Reset features order <span>(<kbd>Alt</kbd>+<kbd>R</kbd>)</span></span>
+          <p>Sorts the feature list back into alphabetical order.</p>
+        </div>
+        <div class="item">
+          <span class="name">Help <span>(<kbd>Alt</kbd>+<kbd>H</kbd>)</span></span>
+          <p>Opens this user guide in your web browser.</p>
+        </div>
+        <div class="item">
+          <span class="name">What's new <span>(<kbd>Alt</kbd>+<kbd>N</kbd>)</span></span>
+          <p>Shows the release notes for the current version.</p>
+        </div>
+        <div class="item">
+          <span class="name">Settings <span>(<kbd>Alt</kbd>+<kbd>I</kbd>)</span></span>
+          <p>Opens the settings dialog — see the next section.</p>
+        </div>
+        <div class="item">
+          <span class="name">About <span>(<kbd>Alt</kbd>+<kbd>A</kbd>)</span></span>
+          <p>Shows the app version and developer information, and links to the project's Telegram channel.</p>
+        </div>
+        <div class="item">
+          <span class="name">Check for update <span>(<kbd>Alt</kbd>+<kbd>U</kbd>)</span></span>
+          <p>Manually checks whether a newer version is available.</p>
+        </div>
+        <div class="item">
+          <span class="name">Send feedback <span>(<kbd>Alt</kbd>+<kbd>K</kbd>)</span></span>
+          <p>Opens the feedback form to send suggestions or report issues to the developers.</p>
+        </div>
+        <div class="item">
+          <span class="name">Exit <span>(<kbd>Alt</kbd>+<kbd>E</kbd>)</span></span>
+          <p>Closes the application.</p>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-title">Tip</span>
+        Press <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> to move between the feature list and the
+        buttons, <kbd>Enter</kbd> or <kbd>Space</kbd> to activate anything, and the
+        <strong>Application key</strong> for context menus. Screen readers announce the selected
+        feature and every button as you move through them.
+      </div>
+    </section>
+
+    <!-- ============ SETTINGS ============ -->
+    <section id="settings" aria-labelledby="settings-heading">
+      <h2 id="settings-heading">4. Settings</h2>
+      <p>
+        Open <strong>Settings</strong> from the home screen to customize how Productivity
+        Companion looks and behaves. The settings dialog is organized into tabs. Press
+        <kbd>Ctrl</kbd>+<kbd>Tab</kbd> to move between tabs (or click them with the mouse).
+        When you are done, press <strong>OK</strong> to save your changes or <strong>Cancel</strong> to
+        discard them.
+      </p>
+
+      <h3>General</h3>
+      <ul>
+        <li><strong>Application theme</strong> — choose <strong>Light</strong>, <strong>Dark</strong>, or <strong>System default</strong> (the app follows your Windows appearance setting).</li>
+        <li><strong>Program display language</strong> — choose <strong>English</strong>, <strong>नेपाली (Nepali)</strong>, or <strong>Türkçe (Turkish)</strong>. Changing the language asks you to restart the app so the new language takes effect.</li>
+        <li><strong>Automatically check for updates on startup</strong> — tick this to be notified of new versions when the app opens.</li>
+      </ul>
+
+      <h3>Document reader</h3>
+      <p>Default settings applied when you open the Document Reader:</p>
+      <ul>
+        <li><strong>Zoom</strong> — default zoom percentage (10–500%).</li>
+        <li><strong>Font size</strong> — default reading font size.</li>
+        <li><strong>High contrast</strong> and <strong>Invert colors</strong> — display options for easier reading.</li>
+        <li><strong>Auto-scroll speed</strong> — speed of automatic scrolling (0 = slow, 9 = fast).</li>
+        <li><strong>Extraction profile</strong> — how text is pulled out of documents (<code>default</code>, <code>simple</code>, <code>detailed</code>, <code>ocr_only</code>, <code>clean</code>).</li>
+        <li><strong>Default export directory</strong> — where exported files are saved.</li>
+        <li><strong>Enable TTS chunking</strong> — splits long texts into smaller chunks for more reliable speech generation.</li>
+      </ul>
+
+      <h3>Text to speech</h3>
+      <ul>
+        <li><strong>Engine</strong> — <strong>Google text to speech</strong> (choose a default language) or <strong>Microsoft Edge voices</strong> (natural neural voices).</li>
+        <li><strong>Voice</strong> — for Edge voices, pick a voice (for example <code>en-US-AriaNeural</code>). Click <strong>Fetch latest voices</strong> to refresh the list of available voices from the server.</li>
+        <li><strong>Speed, pitch, and volume</strong> — fine adjustments for Edge voice output.</li>
+      </ul>
+      <p>
+        These settings are shared by the Text To Speech converter and the Document Reader's
+        <em>Read Aloud</em> feature.
+      </p>
+
+      <h3>Audio transcription</h3>
+      <ul>
+        <li><strong>Transcription mode</strong> — <strong>Online</strong> (fast, cloud-based, no setup) or <strong>Offline</strong> (private, runs entirely on your PC).</li>
+        <li><strong>Whisper model</strong> — for offline mode, download a free Whisper speech-recognition model. Smaller models (<code>tiny</code>, <code>base</code>) are quick to download and fast, while larger models (<code>medium</code>, <code>large-v3</code>) are slower but much more accurate. Download once — after that, transcription works with no internet.</li>
+      </ul>
+      <div class="callout tip">
+        <span class="callout-title">Tip</span>
+        Choose a model that matches your needs. The <code>base</code> model is a good balance of
+        speed and accuracy; use <code>large-v3-turbo</code> when accuracy matters more and your
+        computer can handle it.
+      </div>
+
+      <h3>Recorder</h3>
+      <ul>
+        <li><strong>Default recording path</strong> — the folder where new recordings are saved (choose one with <strong>Browse Recording Path</strong>).</li>
+        <li><strong>Channel</strong> — Mono (<code>1</code>) or Stereo (<code>2</code>).</li>
+        <li><strong>Sampling rate</strong> — <code>44100</code> or <code>48000</code> Hz (higher is better quality).</li>
+        <li><strong>Record as</strong> — <code>WAV</code> (uncompressed) or <code>MP3</code> (compressed, smaller files).</li>
+      </ul>
+
+      <h3>Conversion</h3>
+      <p>
+        Manages <strong>Pandoc</strong>, the conversion engine used by the
+        <em>Word to EPUB</em>, <em>HTML to Markdown</em>, and <em>Markdown to HTML</em> tools.
+        If Pandoc is not installed, click <strong>Download Pandoc</strong>. If you no longer need it,
+        the button changes to <strong>Remove Pandoc</strong>.
+      </p>
+
+      <h3>OCR</h3>
+      <p>
+        Manages <strong>Tesseract OCR</strong>, the engine used by the <em>Image OCR</em> tool and the
+        Document Reader's OCR features:
+      </p>
+      <ul>
+        <li><strong>Download / Remove Tesseract OCR</strong> — install or uninstall the OCR engine.</li>
+        <li><strong>Download additional languages for OCR</strong> — choose from a large list of languages (the list is read live from the Tesseract repository). Each language can be downloaded as a <em>Fast</em> model (smaller, quicker) or a <em>Best</em> model (higher quality). Installed languages can also be removed from this dialog.</li>
+      </ul>
+
+      <h3>More</h3>
+      <ul>
+        <li><strong>Clear productivity companion cache</strong> — deletes saved settings, cached voices, downloaded transcription models, temporary files, and your custom feature order. Use this if the app misbehaves or you want a fresh start.</li>
+      </ul>
+
+      <div class="callout warning">
+        <span class="callout-title">Warning</span>
+        Clearing the cache removes downloaded Whisper models and OCR language data — you would
+        need to download them again afterwards. Your notes and saved links are stored separately
+        and are not removed.
+      </div>
+    </section>
+
+    <!-- ============ FEATURE OVERVIEW ============ -->
+    <section id="feature-overview" aria-labelledby="feature-overview-heading">
+      <h2 id="feature-overview-heading">5. Feature overview</h2>
+      <p>
+        Productivity Companion includes <strong>27 tools</strong>, organized in this guide into five
+        groups. The badges show whether a tool needs the internet
+        (<span class="badge online">Online</span>) or works fully offline
+        (<span class="badge offline">Offline</span>). Tools marked "optional download" work
+        offline after you download a small engine once.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <caption>All 27 features at a glance</caption>
+          <thead>
+            <tr>
+              <th scope="col">Group</th>
+              <th scope="col">Feature</th>
+              <th scope="col">What it does</th>
+              <th scope="col">Connection</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="3">AI &amp; knowledge</td><td>AI Assistant</td><td>Chat with an AI model, with optional web search and document upload.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Wikipedia Search</td><td>Search Wikipedia and read article summaries.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Text Translator</td><td>Translate text between many world languages.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td rowspan="7">Reading &amp; documents</td><td>Document Reader</td><td>Read PDF, EPUB, DOCX, and PPTX with TTS, OCR, AI analysis, bookmarks, and more.</td><td><span class="badge offline">Offline</span>*</td></tr>
+            <tr><td>Image OCR</td><td>Extract text from images with Tesseract.</td><td><span class="badge offline">Offline</span>†</td></tr>
+            <tr><td>PDF to Image</td><td>Export every PDF page as a PNG image.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Image to PDF</td><td>Combine several images into one PDF.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Word to EPub</td><td>Convert Word (DOCX) files to EPUB e-books.</td><td><span class="badge offline">Offline</span>†</td></tr>
+            <tr><td>HTML to Markdown</td><td>Convert HTML files to Markdown.</td><td><span class="badge offline">Offline</span>†</td></tr>
+            <tr><td>Markdown to HTML</td><td>Convert Markdown files to HTML.</td><td><span class="badge offline">Offline</span>†</td></tr>
+            <tr><td rowspan="7">Audio &amp; video</td><td>Text To Speech</td><td>Turn typed or loaded text into spoken audio files.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Audio Transcriber</td><td>Convert recordings into text — online or offline with Whisper.</td><td>Both</td></tr>
+            <tr><td>Voice Recorder</td><td>Record your voice as WAV or MP3.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Video to Audio</td><td>Extract the audio track from videos.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Audio to Video</td><td>Turn audio into a video, optionally with a picture.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Audio Video Editor</td><td>Trim, cut, split, merge, and add effects to audio or video.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Global Radio Player</td><td>Stream live radio from any streaming URL.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td rowspan="5">Image tools</td><td>Image Generator</td><td>Create images from a text prompt with AI.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Image Describer</td><td>Get an AI-written description of an image.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Image Resizer</td><td>Shrink images to a small size for easy sharing.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Text to Image</td><td>Design text cards and banners with fonts and logos.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Media Converter</td><td>Convert between image, audio, and video formats.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td rowspan="5">Everyday utilities</td><td>Notes Manager</td><td>Store and organize notes in categories.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Link Saver</td><td>Save and organize web links in categories.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Currency Converter</td><td>Convert amounts between 40 world currencies with live rates.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Weather</td><td>Get current conditions and forecasts for any city.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Device Information</td><td>View detailed hardware and software information.</td><td><span class="badge offline">Offline</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+      <p style="font-size:0.9rem; color:var(--text-muted);">
+        * The Document Reader reads files offline; its <em>Read Aloud</em>, <em>Translate</em>, and
+        <em>OCR</em> options need an internet connection (or downloaded TTS/OCR language data).
+        † These tools need one small engine downloaded once (Whisper model, Tesseract, or Pandoc).
+      </p>
+    </section>
+
+    <!-- ============ AI & KNOWLEDGE ============ -->
+    <section id="ai-knowledge" aria-labelledby="ai-knowledge-heading">
+      <h2 id="ai-knowledge-heading">6. AI &amp; knowledge tools</h2>
+
+      <!-- AI ASSISTANT -->
+      <article aria-labelledby="ai-assistant-heading">
+        <h3 id="ai-assistant-heading">6.1 AI Assistant <span class="badge online">Online</span></h3>
+        <p>
+          A conversational AI assistant built into the app. Ask questions, request summaries,
+          get writing help, or analyze a document or image that you attach from another tool.
+          Responses are shown in a readable format, and your conversation history is kept while
+          the window is open.
+        </p>
+        <h4>How to use it</h4>
+        <ol class="steps">
+          <li>Open <strong>AI Assistant</strong> from the home screen.</li>
+          <li>Optionally tick <strong>Web search</strong> to let the assistant search the internet for up-to-date answers, or <strong>Thinking</strong> for deeper, step-by-step reasoning. (The two options switch each other off.)</li>
+          <li>Type your prompt in the text field and press <kbd>Enter</kbd> or press the <strong>Send</strong> button. The button changes to <strong>Stop response</strong> — press it if you want to stop the reply early.</li>
+          <li><strong>Attach content</strong> — the assistant itself does not have a file picker; instead, documents and images are attached from other tools and arrive here pre-loaded:
+            <ul>
+              <li>From the <strong>Document Reader</strong>, press <strong>Ask AI assistant</strong> (see <a href="#document-reader-heading">section 7.1</a>) to open the assistant with your opened PDF, EPUB, DOCX, or PPTX attached, ready for questions, analysis, or summaries.</li>
+              <li>From the <strong>Image Describer</strong>, supply an image (file, camera, or clipboard) and the assistant opens with that picture attached and a description request pre-filled.</li>
+            </ul>
+          </li>
+          <li>Navigate through the conversation list with the arrow keys. Use the context menu (right-click or <strong>Application key</strong>) on any message to:
+            <ul>
+              <li><strong>Open</strong> — view the message in its own window.</li>
+              <li><strong>View formatted</strong> — see the rendered (formatted) version.</li>
+              <li><strong>Copy</strong> — copy the message text to the clipboard.</li>
+              <li><strong>Save as</strong> — save it as a Markdown (<code>.md</code>) or text (<code>.txt</code>) file.</li>
+              <li><strong>Translate</strong> — send the text to the Text Translator.</li>
+              <li><strong>Generate audio</strong> — send the text to the Text To Speech converter.</li>
+              <li><strong>View thoughts</strong> — if you used the Thinking option, see the assistant's reasoning.</li>
+            </ul>
+          </li>
+        </ol>
+        <div class="callout note">
+          <span class="callout-title">Note</span>
+          The AI Assistant needs an internet connection. A short typing sound plays while the
+          assistant is generating a response.
+        </div>
+      </article>
+
+      <!-- WIKIPEDIA SEARCH -->
+      <article aria-labelledby="wikipedia-heading">
+        <h3 id="wikipedia-heading">6.2 Wikipedia Search <span class="badge online">Online</span></h3>
+        <p>Search Wikipedia and read summaries of articles without leaving the app.</p>
+        <ol class="steps">
+          <li>Open <strong>Wikipedia Search</strong>.</li>
+          <li>Type a search term in the <strong>Search term</strong> field and press <kbd>Enter</kbd> or the <strong>Search</strong> button.</li>
+          <li>Browse the list of matching article titles.</li>
+          <li>Select an article and press <kbd>Enter</kbd> (or use the context menu) to read its summary, or open the full article in your default web browser.</li>
+        </ol>
+      </article>
+
+      <!-- TEXT TRANSLATOR -->
+      <article aria-labelledby="translator-heading">
+        <h3 id="translator-heading">6.3 Text Translator <span class="badge online">Online</span></h3>
+        <p>Translate text between a wide range of languages using an online translation service.</p>
+        <ol class="steps">
+          <li>Open <strong>Text Translator</strong>.</li>
+          <li>Type your text, or load a <code>.txt</code> file with the <strong>Load</strong> button.</li>
+          <li>Choose the <strong>target language</strong> (the source language is detected automatically).</li>
+          <li>Press <strong>Translate</strong>. The button changes to <em>"Translating, click to cancel"</em> — press it again at any time to cancel.</li>
+          <li>Read the result, and use <strong>Copy</strong> to put it on the clipboard.</li>
+        </ol>
+        <p>
+          You can also reach this tool from other features: for example, an AI Assistant
+          response or a transcription can be sent straight to the translator.
+        </p>
+      </article>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+    </section>
+
+    <!-- ============ DOCUMENTS ============ -->
+    <section id="documents" aria-labelledby="documents-heading">
+      <h2 id="documents-heading">7. Reading &amp; document tools</h2>
+
+      <!-- DOCUMENT READER -->
+      <article aria-labelledby="document-reader-heading">
+        <h3 id="document-reader-heading">7.1 Document Reader <span class="badge offline">Offline</span>*</h3>
+        <p>
+          The most feature-rich tool in the app. Read <strong>PDF</strong>, <strong>EPUB</strong>,
+          <strong>Word (DOCX)</strong>, and <strong>PowerPoint (PPTX)</strong> documents with a workspace
+          designed for keyboard users and screen readers, and work with the documents using a
+          wide range of built-in tools.
+        </p>
+        <h4>Opening a document</h4>
+        <ol class="steps">
+          <li>Open <strong>Document Reader</strong>.</li>
+          <li>Press <strong>Import document</strong> (or <kbd>Ctrl</kbd>+<kbd>I</kbd> from the File menu) and choose a PDF, EPUB, DOCX, or PPTX file.</li>
+          <li>If the file is a password-protected PDF, enter its password when prompted.</li>
+        </ol>
+        <p>
+          The document is divided into <strong>sections</strong> (pages, chapters, or slides).
+          The toolbar tells you which section you are on (for example "Section 5 of 120").
+          Use <kbd>Alt</kbd>+<kbd>PageDown</kbd> for the next section and
+          <kbd>Alt</kbd>+<kbd>PageUp</kbd> for the previous one.
+        </p>
+        <h4>Reading comfortably</h4>
+        <ul>
+          <li><strong>Reading modes</strong> — switch between <strong>Plain Text</strong> (best for screen readers) and <strong>Formatted</strong> (preserves layout) using the Mode drop-down.</li>
+          <li><strong>Zoom</strong> — <kbd>Ctrl</kbd>+<kbd>+</kbd> to zoom in, <kbd>Ctrl</kbd>+<kbd>-</kbd> to zoom out, <kbd>Ctrl</kbd>+<kbd>0</kbd> to reset.</li>
+          <li><strong>High contrast</strong> — <kbd>Ctrl</kbd>+<kbd>H</kbd>.</li>
+          <li><strong>Invert colors</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.</li>
+          <li><strong>Dark mode</strong> — from the View menu.</li>
+          <li><strong>Split view</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> to read two sections side by side.</li>
+          <li><strong>Auto-scroll</strong> — start automatic scrolling; adjust its speed in Settings → Document reader.</li>
+        </ul>
+        <h4>Finding and copying text</h4>
+        <ul>
+          <li><strong>Find</strong> — <kbd>Ctrl</kbd>+<kbd>F</kbd>; jump between matches with <kbd>F3</kbd> and <kbd>Shift</kbd>+<kbd>F3</kbd>.</li>
+          <li><strong>Find and replace</strong> — from the Edit menu.</li>
+          <li><strong>Copy section text</strong> — <kbd>Ctrl</kbd>+<kbd>C</kbd>; <strong>Copy all text</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>.</li>
+          <li><strong>Export</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> to save the document as text, DOCX, audio book, CSV, JSON, or HTML.</li>
+        </ul>
+        <h4>Working with AI</h4>
+        <ul>
+          <li><strong>Ask AI assistant</strong> — the <strong>Ask AI assistant</strong> button (<kbd>Alt</kbd>+<kbd>K</kbd>) opens the AI Assistant with your currently opened document already attached. You can then ask questions about its contents, request an analysis, or have the whole document summarized in refined, well-written language. Works with PDF, EPUB, DOCX, and PPTX files.</li>
+          <li><strong>Deep inside with AI</strong> — the <strong>Deep inside with AI</strong> button (<kbd>Alt</kbd>+<kbd>I</kbd>, PDF files only) turns the current page into a highly accessible presentation. The page is analyzed by AI and rebuilt as a clean, screen-reader-friendly document in which:
+            <ul>
+              <li>All text is extracted with its original wording preserved.</li>
+              <li>Every mathematical equation, formula, fraction, and symbol is written in <strong>MathML</strong>, so equations are read correctly by screen readers instead of being announced as gibberish.</li>
+              <li>Tables and charts are re-presented as accessible tabular data, and every image receives a natural, informative <strong>alt text</strong> description.</li>
+              <li>The result opens in its own resizable window with <strong>Previous Page</strong> / <strong>Next Page</strong> navigation, a <strong>Go to page</strong> box, and a <strong>Reanalyze</strong> button for fresh results.</li>
+            </ul>
+            This makes it especially valuable for blind and visually impaired readers working with PDFs that contain mathematics, tables, charts, or graphs. Results are cached, so revisiting a page does not repeat the analysis.
+          </li>
+          <li><strong>Open in web viewer</strong> — the <strong>Open in web viewer</strong> button (<kbd>Alt</kbd>+<kbd>W</kbd>) is available for <strong>EPUB</strong> and <strong>PPTX</strong> files. It opens the document in a formatted web view — a smart reading experience with the original layout, styling, and structure, ideal for e-books and presentations.</li>
+        </ul>
+        <div class="callout note">
+          <span class="callout-title">Note</span>
+          <strong>Ask AI assistant</strong> and <strong>Deep inside with AI</strong> need an internet
+          connection. Deep Inside is only offered for PDF files, and the Web viewer only for
+          EPUB and PPTX files.
+        </div>
+
+        <h4>Listening and translating</h4>
+        <ul>
+          <li><strong>Read Aloud</strong> — <kbd>Ctrl</kbd>+<kbd>R</kbd> reads the current section with your configured TTS voice. You can pause, resume, restart, adjust speed and volume, and save the speech to an audio file.</li>
+          <li><strong>Voice Preview</strong> — preview the chosen voice before reading a full section.</li>
+          <li><strong>Translate Section</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> translates the current section online.</li>
+        </ul>
+        <h4>OCR for scanned or image-based pages</h4>
+        <ul>
+          <li><strong>OCR</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> recognizes text on the current page using Tesseract (download it from Settings → OCR if asked).</li>
+          <li><strong>Text extraction profiles</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> to choose how text is extracted (<code>default</code>, <code>simple</code>, <code>detailed</code>, <code>ocr_only</code>, <code>clean</code>).</li>
+          <li>Recognized text is <strong>cached</strong>, so you rarely need to OCR the same page twice. Clear the cache for the current page, the whole document, or everything from the Tools menu.</li>
+        </ul>
+        <h4>Studying and analyzing</h4>
+        <ul>
+          <li><strong>Bookmarks</strong> — <kbd>Ctrl</kbd>+<kbd>B</kbd> to bookmark the current section; <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> opens the bookmarks manager; bookmarks can be exported to a JSON file.</li>
+          <li><strong>Table of contents</strong> — <kbd>Ctrl</kbd>+<kbd>T</kbd>.</li>
+          <li><strong>Annotations &amp; highlights</strong> — add notes to a section (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd>) or highlight selected text (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>); manage them with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd>.</li>
+          <li><strong>Compare sections</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> compares two sections.</li>
+          <li><strong>Statistics</strong> — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> shows reading statistics.</li>
+          <li><strong>Extract links</strong> — collects all web links found in the document.</li>
+        </ul>
+        <h4>Editing and manipulating PDFs</h4>
+        <div class="callout warning">
+          <span class="callout-title">Warning</span>
+          These tools change the PDF file itself. Always work on a <strong>copy</strong> of an
+          important document, and keep your original safe.
+        </div>
+        <ul>
+          <li><strong>Protect PDF</strong> — add a password; <strong>Unlock PDF</strong> — remove or enter a password.</li>
+          <li><strong>Redact text</strong> — permanently hide sensitive words (they are replaced by blank space).</li>
+          <li><strong>Rotate page</strong> — clockwise or counter-clockwise.</li>
+          <li><strong>Delete section</strong>, <strong>Extract sections</strong>, and <strong>Split PDF</strong> — reorganize the file into smaller pieces.</li>
+          <li><strong>Add watermark</strong> — stamp text onto pages.</li>
+          <li><strong>Extract images from PDF</strong> and <strong>Save page as image</strong> — pull graphics out of the document.</li>
+        </ul>
+        <h4>Document library</h4>
+        <p>
+          On the reader's start screen you can also open the <strong>Document library</strong> — a
+          list of documents you have previously added, so you can reopen them quickly.
+        </p>
+        <p><strong>Document properties</strong> — <kbd>Ctrl</kbd>+<kbd>M</kbd> shows file details such as title, author, and page count.</p>
+      </article>
+
+      <!-- IMAGE OCR -->
+      <article aria-labelledby="image-ocr-heading">
+        <h3 id="image-ocr-heading">7.2 Image OCR <span class="badge offline">Offline</span>†</h3>
+        <p>Recognize and extract text from pictures (<code>.jpg</code> or <code>.png</code>) using the Tesseract OCR engine.</p>
+        <ol class="steps">
+          <li>Open <strong>Image OCR</strong>. The first time, you may be asked to <strong>download Tesseract OCR</strong> — press Yes and wait for the download to finish (you can also manage it later in Settings → OCR).</li>
+          <li>Press <strong>Open file</strong> and choose an image.</li>
+          <li>Choose the <strong>primary language</strong> for recognition. Tick the checkbox to also set a <strong>secondary language</strong> (useful for mixed-language images).</li>
+          <li>Press <strong>Start</strong>. The recognized text appears in the result box.</li>
+          <li>From the result you can <strong>save it as a text file</strong>, <strong>copy</strong> it, <strong>translate</strong> it, or <strong>convert it to audio</strong>.</li>
+        </ol>
+        <div class="callout tip">
+          <span class="callout-title">Tip</span>
+          If a language is not installed, the app tells you exactly where to download it:
+          Settings → OCR → <strong>Download additional languages for OCR</strong>.
+        </div>
+      </article>
+
+      <!-- PDF TO IMAGE -->
+      <article aria-labelledby="pdf-to-image-heading">
+        <h3 id="pdf-to-image-heading">7.3 PDF to Image <span class="badge offline">Offline</span></h3>
+        <p>Export every page of a PDF as a separate PNG image.</p>
+        <ol class="steps">
+          <li>Open <strong>PDF to Image</strong> and choose a <code>.pdf</code> file.</li>
+          <li>Press <strong>Export to images</strong> and pick the destination folder.</li>
+          <li>The app renders each page at 300&nbsp;DPI and saves them as <code>page_1.png</code>, <code>page_2.png</code>, and so on.</li>
+        </ol>
+      </article>
+
+      <!-- IMAGE TO PDF -->
+      <article aria-labelledby="image-to-pdf-heading">
+        <h3 id="image-to-pdf-heading">7.4 Image to PDF <span class="badge offline">Offline</span></h3>
+        <p>Combine several images into a single PDF document.</p>
+        <ol class="steps">
+          <li>Open <strong>Image to PDF</strong>.</li>
+          <li>Add your images to the list.</li>
+          <li>Re-arrange the order with the context menu (<strong>Move up / down / top / bottom</strong>, <strong>Remove image</strong>) so the pages come out in the right sequence.</li>
+          <li>Press the export button, choose a filename, and save the PDF.</li>
+        </ol>
+      </article>
+
+      <!-- WORD TO EPUB -->
+      <article aria-labelledby="word-epub-heading">
+        <h3 id="word-epub-heading">7.5 Word to EPub <span class="badge offline">Offline</span>†</h3>
+        <p>Convert Microsoft Word documents (<code>.docx</code>) into EPUB e-book files.</p>
+        <ol class="steps">
+          <li>Open <strong>Word to EPub</strong>. If Pandoc is not installed, the app offers to download it (or use Settings → Conversion).</li>
+          <li>Press <strong>Open word document</strong> and choose a <code>.docx</code> file.</li>
+          <li>Press <strong>Save to epub document</strong> and choose where to save the <code>.epub</code> output.</li>
+        </ol>
+      </article>
+
+      <!-- HTML TO MARKDOWN -->
+      <article aria-labelledby="html-md-heading">
+        <h3 id="html-md-heading">7.6 HTML to Markdown <span class="badge offline">Offline</span>†</h3>
+        <p>Convert web-page files (<code>.html</code>) into Markdown (<code>.md</code>) — handy for taking notes or publishing content.</p>
+        <ol class="steps">
+          <li>Open <strong>HTML to Markdown</strong> (Pandoc is required; download it if prompted).</li>
+          <li>Press <strong>Open HTML document</strong> and choose an <code>.html</code> file.</li>
+          <li>Press <strong>Save to markdown file</strong> and choose the output location.</li>
+        </ol>
+      </article>
+
+      <!-- MARKDOWN TO HTML -->
+      <article aria-labelledby="md-html-heading">
+        <h3 id="md-html-heading">7.7 Markdown to HTML <span class="badge offline">Offline</span>†</h3>
+        <p>Do the reverse: convert Markdown files (<code>.md</code>) into HTML documents.</p>
+        <ol class="steps">
+          <li>Open <strong>Markdown to HTML</strong> (Pandoc is required).</li>
+          <li>Press <strong>Open Markdown file</strong> and choose an <code>.md</code> file.</li>
+          <li>Press <strong>Save to HTML document</strong> and choose the output location.</li>
+        </ol>
+      </article>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+    </section>
+
+    <!-- ============ AUDIO & VIDEO ============ -->
+    <section id="audio-video" aria-labelledby="audio-video-heading">
+      <h2 id="audio-video-heading">8. Audio &amp; video tools</h2>
+
+      <!-- TEXT TO SPEECH -->
+      <article aria-labelledby="tts-heading">
+        <h3 id="tts-heading">8.1 Text To Speech <span class="badge online">Online</span></h3>
+        <p>Turn written text into spoken audio files (<code>.mp3</code>) with natural voices.</p>
+        <ol class="steps">
+          <li>Open <strong>Text To Speech</strong>.</li>
+          <li>Type your text, or load a <code>.txt</code> file with the <strong>Load</strong> button.</li>
+          <li>Check the <strong>Voice</strong> button — it shows the current engine and voice. Press it to switch between <strong>Google text to speech</strong> (pick a language) and <strong>Microsoft Edge voices</strong> (pick a natural voice; speed, pitch, and volume come from Settings → Text to speech).</li>
+          <li>Press <strong>Generate</strong>, choose where to save the <code>.mp3</code>, and wait for the conversion. The button changes to <em>"Generating, click to cancel"</em> — press it again to cancel.</li>
+          <li>When finished, press <strong>Play</strong> to hear the result inside the app.</li>
+        </ol>
+        <div class="callout tip">
+          <span class="callout-title">Tip</span>
+          Microsoft Edge voices sound very natural and let you adjust speed, pitch, and
+          volume. Use <strong>Fetch latest voices</strong> in Settings to see the newest voices
+          available.
+        </div>
+      </article>
+
+      <!-- AUDIO TRANSCRIBER -->
+      <article aria-labelledby="transcriber-heading">
+        <h3 id="transcriber-heading">8.2 Audio Transcriber <span class="badge online">Online</span> / <span class="badge offline">Offline</span></h3>
+        <p>Convert speech in audio files (<code>.mp3</code>, <code>.wav</code>, <code>.flac</code>, <code>.ogg</code>, <code>.m4a</code>) into readable text.</p>
+        <ol class="steps">
+          <li>Open <strong>Audio Transcriber</strong>.</li>
+          <li>Choose your mode in Settings → Audio transcription:
+            <ul>
+              <li><strong>Online</strong> — cloud-based AI transcription. Fast and accurate; needs internet. No setup required.</li>
+              <li><strong>Offline</strong> — runs on your PC with a Whisper model. Download a model first in Settings → Audio transcription (models range from <code>tiny</code> to <code>large-v3</code>).</li>
+            </ul>
+          </li>
+          <li>Press <strong>Select audio file to transcribe</strong> and choose your file.</li>
+          <li>Transcription begins and progress is shown. The button becomes <strong>Cancel</strong> — press it to stop.</li>
+          <li>When it finishes, you can <strong>copy</strong> the transcript, <strong>translate</strong> it, or <strong>convert it to audio</strong>.</li>
+        </ol>
+        <div class="callout note">
+          <span class="callout-title">Note</span>
+          The transcriber keeps the original language of the audio and notes when the speaker
+          changes (a <code>[speaker changed]</code> marker is added at the start of a new line).
+        </div>
+      </article>
+
+      <!-- VOICE RECORDER -->
+      <article aria-labelledby="recorder-heading">
+        <h3 id="recorder-heading">8.3 Voice Recorder <span class="badge offline">Offline</span></h3>
+        <p>Record voice memos and audio notes directly with your microphone.</p>
+        <ol class="steps">
+          <li>Open <strong>Voice Recorder</strong>.</li>
+          <li>Choose where to save the recording with the <strong>Browse</strong> button (the default folder comes from Settings → Recorder).</li>
+          <li>Press <strong>Start recording</strong> (the button changes to <strong>Stop recording</strong>).</li>
+          <li>Use <strong>Pause</strong>/<strong>Resume</strong> if you need a break mid-recording.</li>
+          <li>Press <strong>Stop recording</strong> to finish and save the file as WAV or MP3 (the format is chosen in Settings → Recorder, along with mono/stereo and sampling rate).</li>
+          <li>Press <strong>Play</strong> to listen back inside the app.</li>
+        </ol>
+      </article>
+
+      <!-- VIDEO TO AUDIO -->
+      <article aria-labelledby="video-audio-heading">
+        <h3 id="video-audio-heading">8.4 Video to Audio <span class="badge offline">Offline</span></h3>
+        <p>Extract the audio track from a video so you can listen to it anywhere.</p>
+        <ol class="steps">
+          <li>Open <strong>Video to Audio</strong>.</li>
+          <li>Press <strong>Open Video file</strong> and choose a video.</li>
+          <li>Choose the <strong>output format</strong>: <code>mp3</code>, <code>wav</code>, or <code>m4a</code>.</li>
+          <li>Optionally tick <strong>Enable high quality conversion</strong> (slower but better quality).</li>
+          <li>Press <strong>Save to audio</strong> and choose where to save the result.</li>
+        </ol>
+        <p>
+          <strong>Batch conversion:</strong> tick <strong>Enable multiple video conversion</strong> to
+          import up to <strong>10 videos at once</strong>, then convert them all in one go.
+        </p>
+      </article>
+
+      <!-- AUDIO TO VIDEO -->
+      <article aria-labelledby="audio-video-converter-heading">
+        <h3 id="audio-video-converter-heading">8.5 Audio to Video <span class="badge offline">Offline</span></h3>
+        <p>Turn an audio file into a video — useful for uploading music or podcasts to video platforms.</p>
+        <ol class="steps">
+          <li>Open <strong>Audio to Video</strong>.</li>
+          <li>Press <strong>Open audio file</strong> and choose your audio (<code>.mp3</code>, <code>.wav</code>, <code>.m4a</code>, <code>.flac</code>, <code>.aac</code>, <code>.ogg</code>, <code>.wma</code>).</li>
+          <li>Optionally press <strong>Add Image to Video</strong> to use a picture as the video's visual (otherwise a default background is used).</li>
+          <li>Choose the <strong>aspect ratio</strong>: <code>16:9</code> (landscape) or <code>9:16</code> (vertical, for shorts/reels).</li>
+          <li>Optionally tick <strong>Enable high quality conversion</strong>.</li>
+          <li>Press <strong>Convert</strong> and save the result as <code>.mp4</code> or <code>.mkv</code>.</li>
+        </ol>
+      </article>
+
+      <!-- AUDIO VIDEO EDITOR -->
+      <article aria-labelledby="editor-heading">
+        <h3 id="editor-heading">8.6 Audio Video Editor <span class="badge offline">Offline</span></h3>
+        <p>
+          A keyboard-accessible editor for audio and video files. Open a file, pick an action,
+          and export the result. Supported formats include <code>.mp3</code>, <code>.wav</code>,
+          <code>.m4a</code>, <code>.aac</code>, <code>.flac</code>, <code>.ogg</code>, <code>.wma</code> for audio and
+          <code>.mp4</code>, <code>.mkv</code>, <code>.avi</code>, <code>.mov</code>, <code>.flv</code>, <code>.wmv</code>,
+          <code>.webm</code> for video.
+        </p>
+        <ol class="steps">
+          <li>Open <strong>Audio Video Editor</strong> (the first open takes a moment to initialize).</li>
+          <li>Press <strong>Open audio or video file</strong> and choose your file. Its name appears in the status bar.</li>
+          <li>Choose an action from the list:
+            <ul>
+              <li><strong>Trim</strong> — keep only the part of the file between a start and end point.</li>
+              <li><strong>Cut</strong> — remove a selected portion and join the remaining parts.</li>
+              <li><strong>Split</strong> — divide the file at a chosen point into separate files.</li>
+              <li><strong>Add background music</strong> — mix a music track under a video (videos only).</li>
+              <li><strong>Add watermark</strong> — overlay text or an image on a video (videos only).</li>
+              <li><strong>Change volume</strong> — boost or lower the volume of the whole file or a segment.</li>
+              <li><strong>Change echo</strong> — add an echo effect.</li>
+              <li><strong>Merge</strong> — combine your file with a second file, appending it to the beginning or the end.</li>
+            </ul>
+          </li>
+          <li>Set the options for the chosen action, then preview the result and <strong>export</strong> it to a new file.</li>
+        </ol>
+      </article>
+
+      <!-- GLOBAL RADIO -->
+      <article aria-labelledby="radio-heading">
+        <h3 id="radio-heading">8.7 Global Radio Player <span class="badge online">Online</span></h3>
+        <p>Stream live radio stations from anywhere in the world by entering a streaming URL.</p>
+        <ol class="steps">
+          <li>Open <strong>Global Radio Player</strong>.</li>
+          <li>Paste a live <strong>streaming URL</strong> into the field and press <strong>Play</strong>.</li>
+          <li>Control playback with <strong>Play/Pause</strong> and <strong>Stop</strong> in the player window.</li>
+        </ol>
+        <div class="callout tip">
+          <span class="callout-title">Tip</span>
+          The same built-in player is used by other tools — for example, the Voice Recorder and
+          Text To Speech use it to play back your recordings and generated audio.
+        </div>
+      </article>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+    </section>
+
+    <!-- ============ IMAGE TOOLS ============ -->
+    <section id="image-tools" aria-labelledby="image-tools-heading">
+      <h2 id="image-tools-heading">9. Image tools</h2>
+
+      <!-- IMAGE GENERATOR -->
+      <article aria-labelledby="image-generator-heading">
+        <h3 id="image-generator-heading">9.1 Image Generator <span class="badge online">Online</span></h3>
+        <p>Create images from a text description using an online AI image model.</p>
+        <ol class="steps">
+          <li>Open <strong>Image Generator</strong>.</li>
+          <li>Describe what you want in the <strong>prompt</strong> field (for example: "a red fox sitting in a snowy forest at sunset").</li>
+          <li>Press <strong>Generate Image</strong> and wait — generation can take a minute.</li>
+          <li>The preview appears in the window. Press <strong>Save Image</strong> to export it (PNG, JPG, or BMP).</li>
+        </ol>
+        <div class="callout note">
+          <span class="callout-title">Note</span>
+          Generation needs an internet connection. If a request times out, try a shorter or
+          simpler prompt.
+        </div>
+      </article>
+
+      <!-- IMAGE DESCRIBER -->
+      <article aria-labelledby="image-describer-heading">
+        <h3 id="image-describer-heading">9.2 Image Describer <span class="badge online">Online</span></h3>
+        <p>Get a spoken or written description of an image — helpful for understanding pictures, checking layouts, or identifying objects.</p>
+        <ol class="steps">
+          <li>Open <strong>Image Describer</strong>.</li>
+          <li>Choose how to supply the image:
+            <ul>
+              <li><strong>Open Image</strong> — pick a file (<code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.gif</code>, <code>.bmp</code>, <code>.webp</code>, <code>.tiff</code>).</li>
+              <li><strong>Take Picture</strong> — capture a photo with your webcam.</li>
+              <li><strong>Describe from clipboard</strong> — paste a copied image or an image URL.</li>
+            </ul>
+          </li>
+          <li>Wait for the AI analysis; the description is shown in the result area.</li>
+        </ol>
+      </article>
+
+      <!-- IMAGE RESIZER -->
+      <article aria-labelledby="image-resizer-heading">
+        <h3 id="image-resizer-heading">9.3 Image Resizer <span class="badge offline">Offline</span></h3>
+        <p>Shrink large photos (<code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>) down to roughly <strong>30&nbsp;KB</strong> so they are quick to send by email or messaging apps.</p>
+        <ol class="steps">
+          <li>Open <strong>Image Resizer</strong>.</li>
+          <li>Press <strong>Open image</strong> and choose your picture.</li>
+          <li>Press <strong>Resize</strong> and choose where to save the smaller <code>.jpg</code>.</li>
+          <li>The app reduces the dimensions and compression until the file is small; if the image is already small enough, it tells you no resizing is needed.</li>
+        </ol>
+      </article>
+
+      <!-- TEXT TO IMAGE -->
+      <article aria-labelledby="text-image-heading">
+        <h3 id="text-image-heading">9.4 Text to Image <span class="badge offline">Offline</span></h3>
+        <p>Design attractive text cards, banners, and posters by turning typed text into a finished image (up to 1000 characters).</p>
+        <ol class="steps">
+          <li>Open <strong>Text to Image</strong>.</li>
+          <li>Type your text in the large edit field.</li>
+          <li>Customize the design:
+            <ul>
+              <li>Font, font size, and text color (colors are chosen automatically for good contrast against your background).</li>
+              <li>Background style and colors, frame/border options.</li>
+              <li>Optional <strong>Logo / Watermark</strong>: tick <strong>Add logo or watermark</strong>, choose an image, and set its position (for example top-left or bottom-center), opacity, and size.</li>
+            </ul>
+          </li>
+          <li>Preview the result and export it as an image file.</li>
+        </ol>
+      </article>
+
+      <!-- MEDIA CONVERTER -->
+      <article aria-labelledby="media-converter-heading">
+        <h3 id="media-converter-heading">9.5 Media Converter <span class="badge offline">Offline</span></h3>
+        <p>Convert one media format into another — image, audio, or video — using the bundled FFmpeg engine.</p>
+        <ol class="steps">
+          <li>Open <strong>Media Converter</strong> and choose <strong>Image Converter</strong>, <strong>Audio Converter</strong>, or <strong>Video Converter</strong>.</li>
+          <li>Press <strong>Select image/audio/video</strong> and choose your file.</li>
+          <li>Pick the <strong>output format</strong>:
+            <ul>
+              <li>Image: <code>png</code>, <code>jpg</code>, <code>jpeg</code>, <code>bmp</code>, <code>gif</code>, <code>webp</code>, <code>tiff</code>.</li>
+              <li>Audio: <code>mp3</code>, <code>wav</code>, <code>aac</code>, <code>flac</code>, <code>ogg</code>, <code>m4a</code>.</li>
+              <li>Video: <code>mp4</code>, <code>avi</code>, <code>mkv</code>, <code>mov</code>, <code>webm</code>, <code>flv</code>.</li>
+            </ul>
+          </li>
+          <li>Press <strong>Convert</strong>. The converted file is saved next to the original with the new extension.</li>
+        </ol>
+        <div class="callout note">
+          <span class="callout-title">Note</span>
+          The output format must be different from the input format. Large video conversions can
+          take a while — a progress dialog keeps you informed.
+        </div>
+      </article>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+    </section>
+
+    <!-- ============ UTILITIES ============ -->
+    <section id="utilities" aria-labelledby="utilities-heading">
+      <h2 id="utilities-heading">10. Everyday utilities</h2>
+
+      <!-- NOTES MANAGER -->
+      <article aria-labelledby="notes-heading">
+        <h3 id="notes-heading">10.1 Notes Manager <span class="badge offline">Offline</span></h3>
+        <p>Write and organize notes inside categories. Everything is stored locally on your computer in a <code>notes.json</code> file.</p>
+        <ol class="steps">
+          <li>Open <strong>Notes Manager</strong>.</li>
+          <li>Create a <strong>category</strong> (for example "Work", "School", "Ideas") with the <strong>New category</strong> button.</li>
+          <li>Add a note inside the category with the <strong>New note</strong> button — give it a title and content.</li>
+          <li>Use the context menu to <strong>edit</strong>, <strong>delete</strong>, or <strong>rename categories</strong> and to manage notes.</li>
+          <li>Use <strong>Export</strong> to back up all your notes to a JSON file, and <strong>Import</strong> to restore or move them to another computer.</li>
+        </ol>
+      </article>
+
+      <!-- LINK SAVER -->
+      <article aria-labelledby="links-heading">
+        <h3 id="links-heading">10.2 Link Saver <span class="badge offline">Offline</span></h3>
+        <p>Keep your favorite web addresses organized in categories so you never lose a useful link.</p>
+        <ol class="steps">
+          <li>Open <strong>Link Saver</strong>.</li>
+          <li>Create a <strong>category</strong> (for example "Articles", "Tools", "Social").</li>
+          <li>Add a link with a title and URL. Use the context menu to <strong>edit</strong>, <strong>delete</strong>, <strong>copy</strong>, or <strong>rename categories</strong>.</li>
+          <li>Press <strong>Enter</strong> (or choose <strong>Open</strong> from the context menu) on a saved link to open it in your default web browser.</li>
+          <li>Use <strong>Export</strong>/<strong>Import</strong> to back up your links as a JSON file.</li>
+        </ol>
+      </article>
+
+      <!-- CURRENCY -->
+      <article aria-labelledby="currency-heading">
+        <h3 id="currency-heading">10.3 Currency Converter <span class="badge online">Online</span></h3>
+        <p>Convert amounts between 40 world currencies using up-to-date exchange rates.</p>
+        <ol class="steps">
+          <li>Open <strong>Currency Converter</strong>.</li>
+          <li>Choose the currency you are <strong>converting from</strong>.</li>
+          <li>Choose the currency you are <strong>converting to</strong>.</li>
+          <li>Enter the <strong>amount</strong>.</li>
+          <li>Press <strong>Convert</strong> — the result appears in the read-only result box.</li>
+        </ol>
+        <div class="callout note">
+          <span class="callout-title">Note</span>
+          Rates come from a live online service, so an internet connection is required and the
+          result is only as current as the latest rate update.
+        </div>
+      </article>
+
+      <!-- WEATHER -->
+      <article aria-labelledby="weather-heading">
+        <h3 id="weather-heading">10.4 Weather <span class="badge online">Online</span></h3>
+        <p>Get current weather conditions and a multi-day forecast for any city in the world.</p>
+        <ol class="steps">
+          <li>Open <strong>Weather</strong>.</li>
+          <li>Type the name of a city (for example <code>Kathmandu</code>) in the field.</li>
+          <li>Press <strong>Fetch weather info</strong>.</li>
+          <li>Read the current conditions — temperature, feels-like temperature, humidity, wind speed and direction, pressure, visibility, cloud cover, UV index, and precipitation — followed by the daily forecast (maximum/minimum/average temperature, sunrise, and sunset).</li>
+          <li>Press <strong>Copy weather info</strong> to copy the whole report to the clipboard.</li>
+        </ol>
+      </article>
+
+      <!-- DEVICE INFO -->
+      <article aria-labelledby="device-info-heading">
+        <h3 id="device-info-heading">10.5 Device Information <span class="badge offline">Offline</span></h3>
+        <p>See a complete overview of your computer: operating system, processor (including Intel and AMD generation detection), memory, storage partitions, graphics card, battery, BIOS, motherboard, boot mode, and Secure Boot status.</p>
+        <ol class="steps">
+          <li>Open <strong>Device Information</strong>.</li>
+          <li>Wait a moment while the app gathers details about your system.</li>
+          <li>Browse the categories in the list; activate any item to view its full value.</li>
+          <li>Use the copy buttons to copy individual values (for example, your CPU name) to the clipboard.</li>
+        </ol>
+        <div class="callout tip">
+          <span class="callout-title">Tip</span>
+          This is handy when you need to check system requirements, find your Windows version,
+          or share your hardware details with support staff.
+        </div>
+      </article>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+    </section>
+
+    <!-- ============ SHORTCUTS ============ -->
+    <section id="shortcuts" aria-labelledby="shortcuts-heading">
+      <h2 id="shortcuts-heading">11. Keyboard shortcuts</h2>
+
+      <h3>Home screen</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>Home screen access keys</caption>
+          <thead>
+            <tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><kbd>F1</kbd></td><td>Open Help (this guide) — same as the Help button</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>R</kbd></td><td>Reset features order</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>H</kbd></td><td>Open Help (this guide)</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>N</kbd></td><td>Show "What's new"</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>I</kbd></td><td>Open Settings</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>A</kbd></td><td>Open About</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>U</kbd></td><td>Check for update</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>K</kbd></td><td>Send feedback</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>E</kbd></td><td>Exit the application</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Document Reader</h3>
+      <p>The Document Reader has a rich set of shortcuts. All of them are listed in the menus (File, Edit, View, Tools, Navigate, Manipulate). The most useful ones:</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Document Reader keyboard shortcuts</caption>
+          <thead>
+            <tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>I</kbd></td><td>Import document</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd></td><td>Export document</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>M</kbd></td><td>Document properties</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>W</kbd></td><td>Close document / window</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Find text</td></tr>
+            <tr><td><kbd>F3</kbd> / <kbd>Shift</kbd>+<kbd>F3</kbd></td><td>Find next / previous match</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Copy current section text</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td><td>Copy all text</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd></td><td>Highlight selection</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>+</kbd> / <kbd>Ctrl</kbd>+<kbd>-</kbd></td><td>Zoom in / out</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>0</kbd></td><td>Reset zoom</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>High contrast</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd></td><td>Invert colors</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td><td>Split view</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd></td><td>Run OCR on current section</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><td>Choose text extraction profile</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>R</kbd></td><td>Read aloud</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>Reading statistics</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd></td><td>Translate section</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Add bookmark</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd></td><td>Bookmarks manager</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>T</kbd></td><td>Table of contents</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></td><td>Annotations</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd></td><td>Highlights</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Go to section</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>PageUp</kbd> / <kbd>Alt</kbd>+<kbd>PageDown</kbd></td><td>Previous / next section</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>General Windows shortcuts that also work here</h3>
+      <ul>
+        <li><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> — move between controls.</li>
+        <li><kbd>Enter</kbd> or <kbd>Space</kbd> — activate the focused button or list item.</li>
+        <li><kbd>Application key</kbd> or <kbd>Shift</kbd>+<kbd>F10</kbd> — open the context menu (equivalent to right-click).</li>
+        <li><kbd>Alt</kbd>+<kbd>F4</kbd> — close the current window.</li>
+        <li><kbd>Ctrl</kbd>+<kbd>C</kbd> — copy selected text.</li>
+        <li><kbd>Ctrl</kbd>+<kbd>Tab</kbd> — move between tabs in dialog windows (such as Settings).</li>
+      </ul>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+    </section>
+
+    <!-- ============ ACCESSIBILITY ============ -->
+    <section id="accessibility" aria-labelledby="accessibility-heading">
+      <h2 id="accessibility-heading">12. Accessibility</h2>
+      <p>
+        Productivity Companion is designed to be usable by everyone, including people who rely
+        on screen readers, magnification, or keyboard-only navigation. Here is what you can
+        expect:
+      </p>
+      <ul>
+        <li><strong>Screen reader support</strong> — the app is built with wxPython and works well with <strong>NVDA</strong>, <strong>JAWS</strong>, and Windows <strong>Narrator</strong>. All buttons, lists, and dialogs have meaningful labels that are announced when you focus them.</li>
+        <li><strong>Full keyboard access</strong> — every action can be performed with the keyboard. Lists respond to the arrow keys, <kbd>Enter</kbd> opens the selected feature, and <kbd>Tab</kbd> moves through buttons.</li>
+        <li><strong>Access keys</strong> — buttons with underlined letters can be activated with <kbd>Alt</kbd>+<em>letter</em>, e.g. <kbd>Alt</kbd>+<kbd>I</kbd> for Settings.</li>
+        <li><strong>Context menus</strong> — use the <strong>Application key</strong> (or <kbd>Shift</kbd>+<kbd>F10</kbd>) anywhere a right-click menu is available.</li>
+        <li><strong>Announced state changes</strong> — checkboxes announce their state (for example "Web search (on)" / "Web search (off)"), and buttons change their labels to reflect what will happen next ("Stop recording", "Cancel", "Generating, click to cancel").</li>
+        <li><strong>Visible focus</strong> — the focused control is clearly indicated, making it easy to follow along with or without a screen reader.</li>
+        <li><strong>Themes</strong> — choose <strong>Light</strong>, <strong>Dark</strong>, or <strong>System default</strong> in Settings → General. High contrast and color inversion options inside the Document Reader help with low vision.</li>
+        <li><strong>Speech everywhere</strong> — the Text To Speech tool and the Document Reader's <em>Read Aloud</em> can read content aloud, and transcribed or OCR'd text can be turned into audio files.</li>
+        <li><strong>Multiple languages</strong> — the interface is available in English, Nepali, and Turkish, and TTS supports a very large set of languages.</li>
+      </ul>
+      <div class="callout info">
+        <span class="callout-title">Accessibility of this guide</span>
+        This guide itself is written with accessibility in mind: it uses semantic headings and
+        landmarks, a skip link, keyboard-friendly navigation, high-contrast colors, and a dark
+        mode that follows your system settings. The <strong>Help</strong> button in the app opens
+        this page in your web browser.
+      </div>
+    </section>
+
+    <!-- ============ TROUBLESHOOTING ============ -->
+    <section id="troubleshooting" aria-labelledby="troubleshooting-heading">
+      <h2 id="troubleshooting-heading">13. Tips &amp; troubleshooting</h2>
+
+      <h3>Internet requirements</h3>
+      <p>
+        These features need a live internet connection: <strong>AI Assistant</strong>,
+        <strong>Image Generator</strong>, <strong>Image Describer</strong>, <strong>Wikipedia Search</strong>,
+        <strong>Text Translator</strong>, <strong>Currency Converter</strong>, <strong>Weather</strong>,
+        <strong>Global Radio Player</strong>, <strong>Text To Speech</strong> (both engines), online
+        <strong>transcription</strong>, and update checks. If a feature reports a connection error,
+        check your network and try again.
+      </p>
+
+      <h3>Working offline</h3>
+      <ul>
+        <li><strong>Offline transcription</strong> — download a Whisper model once in Settings → Audio transcription, then switch the mode to <strong>Offline</strong>.</li>
+        <li><strong>Offline OCR</strong> — download Tesseract and your languages in Settings → OCR, then use Image OCR or the Document Reader's OCR with no internet.</li>
+        <li><strong>Offline document conversion</strong> — download Pandoc once in Settings → Conversion for Word to EPUB, HTML to Markdown, and Markdown to HTML.</li>
+        <li><strong>Everything else marked offline</strong> — media conversion, image editing, notes, links, recording, device information — works without any connection.</li>
+      </ul>
+
+      <h3>Common questions</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>Common problems and their solutions</caption>
+          <thead>
+            <tr><th scope="col">Problem</th><th scope="col">Solution</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"Tesseract OCR is not downloaded"</td>
+              <td>Answer <strong>Yes</strong> to download it, or open Settings → OCR → <strong>Download Tesseract OCR</strong>. Then add languages with <strong>Download additional languages for OCR</strong>.</td>
+            </tr>
+            <tr>
+              <td>"Pandoc is required" when converting documents</td>
+              <td>Download Pandoc from Settings → Conversion (or accept the in-app prompt). It is used by Word to EPub, HTML to Markdown, and Markdown to HTML.</td>
+            </tr>
+            <tr>
+              <td>Offline transcription says no model is available</td>
+              <td>Go to Settings → Audio transcription, pick a Whisper model and press <strong>Download</strong>. Wait for it to finish (large models take time), then transcribe again.</td>
+            </tr>
+            <tr>
+              <td>An OCR language is "not installed"</td>
+              <td>Open Settings → OCR → <strong>Download additional languages for OCR</strong>, choose the language (Fast or Best model) and download it, then retry.</td>
+            </tr>
+            <tr>
+              <td>AI Assistant or online tools fail</td>
+              <td>These require internet. Check your connection and try again; for the Image Generator, try a shorter prompt if a request times out.</td>
+            </tr>
+            <tr>
+              <td>The app behaves oddly or feels slow</td>
+              <td>Open Settings → More → <strong>Clear productivity companion cache</strong>. Note this deletes settings, downloaded models, and your feature order (see the warning in the Settings section).</td>
+            </tr>
+            <tr>
+              <td>I want to undo my feature order changes</td>
+              <td>Press <strong>Reset features order</strong> on the home screen to return to alphabetical order.</td>
+            </tr>
+            <tr>
+              <td>How do I update the app?</td>
+              <td>Press <strong>Check for update</strong> (or let the automatic check run). If a new version exists, install it from the Microsoft Store.</td>
+            </tr>
+            <tr>
+              <td>Where is my data stored?</td>
+              <td>Notes, links, settings, downloaded models, and caches live in the app's data folder: <code>%LOCALAPPDATA%\Packages\com.blindtechnexus.productivitycompanion\LocalState</code>. Export notes and links to JSON regularly for safe backups.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Good habits</h3>
+      <ul>
+        <li>Before manipulating a PDF (redact, split, delete pages, watermark), work on a <strong>copy</strong> so the original stays intact.</li>
+        <li>Back up your <strong>Notes Manager</strong> and <strong>Link Saver</strong> data regularly with their Export buttons.</li>
+        <li>Large downloads (Whisper models, OCR languages, Tesseract, Pandoc) only need to happen <strong>once</strong> — after that they work offline.</li>
+        <li>Use the <strong>Send feedback</strong> button to report bugs or request features; the developers read every message.</li>
+      </ul>
+      <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
+    </section>
+
+    <!-- ============ FEEDBACK ============ -->
+    <section id="feedback" aria-labelledby="feedback-heading">
+      <h2 id="feedback-heading">14. Feedback &amp; support</h2>
+      <p>
+        Your feedback helps make Productivity Companion better. There are two easy ways to get
+        in touch:
+      </p>
+      <ol class="steps">
+        <li>
+          <strong>Send feedback from the app</strong> — on the home screen, press
+          <strong>Send feedback</strong> (<kbd>Alt</kbd>+<kbd>K</kbd>). Enter your name, an optional email
+          address, and your message, then press <strong>Send</strong>. The message goes directly to the
+          developers. You can cancel a message while it is sending.
+        </li>
+        <li>
+          <strong>Join the Telegram channel</strong> — open <strong>About</strong> (<kbd>Alt</kbd>+<kbd>A</kbd>)
+          and press <strong>Join our telegram channel</strong> to open the project's Telegram channel
+          in your browser.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">15. About &amp; credits</h2>
+      <ul>
+        <li><strong>Application:</strong> Productivity Companion</li>
+        <li><strong>Current version:</strong> 26.1</li>
+        <li><strong>Developers:</strong> Bibek Sharma and Sujan Rai (collaborators)</li>
+        <li><strong>Translators:</strong>
+          <ul>
+            <li><strong>Mert</strong> — translated the project into Turkish.</li>
+          </ul>
+        </li>
+        <li><strong>Origin:</strong> Made and maintained in Nepal</li>
+        <li><strong>Distribution:</strong> Microsoft Store</li>
+        <li><strong>Privacy:</strong> read our <a href="privacy_policy.html">Privacy Policy</a> to learn exactly what information the app stores locally, what it sends online, and how you stay in control.</li>
+        <li><strong>Technology:</strong> Python with the wxPython interface toolkit; FFmpeg and VLC power the media tools; Tesseract powers OCR; Whisper powers offline transcription; Pandoc powers document conversion.</li>
+      </ul>
+      <h3>Release notes — version 26.1</h3>
+      <ul>
+        <li>First Microsoft Store version of the application.</li>
+        <li>Full set of 27 productivity tools in one accessible package.</li>
+        <li>Automatic update checking with Store-based installation.</li>
+      </ul>
+      <div class="callout info">
+        <span class="callout-title">Special thanks</span>
+        We are deeply grateful to our translators for making Productivity Companion available
+        in more languages. A heartfelt <strong>thank you</strong> to every translator who has
+        contributed their time and care — your work helps people around the world use this
+        application in their own language.
+      </div> <br>
+      <div class="callout tip">
+        <span class="callout-title">Tip: </span>
+        To see the release notes at any time, press <strong>What's new</strong> (<kbd>Alt</kbd>+<kbd>N</kbd>)
+        on the home screen. The About dialog (<kbd>Alt</kbd>+<kbd>A</kbd>) shows the version number and
+        can copy it to your clipboard — useful when reporting issues.
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p><strong>Productivity Companion</strong> — Complete User Guide &amp; Tutorial</p>
+  <p>Version 26.1 &bull; Made and maintained in Nepal &bull; Built with accessibility in mind.</p>
+  <p>
+    This guide opens from the application's <strong>Help</strong> button (or press <kbd>F1</kbd> on the
+    home screen). For the latest version of this document, updates, and support, use the
+    <strong>Send feedback</strong> button in the app or join the Telegram channel from the
+    <strong>About</strong> dialog. Read our <a href="privacy_policy.html">Privacy Policy</a> to learn
+    how your data is handled.
+  </p>
+</footer>
+
+</body>
+</html>

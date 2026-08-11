@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Privacy policy for Productivity Companion, an all-in-one, screen-reader-friendly productivity suite for Windows.">
+<title>Productivity Companion — Privacy Policy</title>
+<style>
+  /* ============ Design tokens ============ */
+  :root {
+    color-scheme: light dark;
+
+    /* Light palette */
+    --page-bg: #f6f8fb;
+    --card-bg: #ffffff;
+    --text-main: #101828;
+    --text-muted: #475467;
+    --border-color: #d9e1ec;
+    --accent: #0e7490;
+    --accent-strong: #155e75;
+    --accent-soft: #ecfeff;
+    --link: #155e75;
+    --link-hover: #0e7490;
+    --kbd-bg: #eef2f7;
+    --kbd-border: #c3cfdd;
+    --code-bg: #f1f4f9;
+    --code-border: #d9e1ec;
+    --note-bg: #eff6ff;
+    --note-border: #2563eb;
+    --note-text: #1e3a8a;
+    --tip-bg: #ecfdf3;
+    --tip-border: #16a34a;
+    --tip-text: #14532d;
+    --warn-bg: #fffbeb;
+    --warn-border: #d97706;
+    --warn-text: #78350f;
+    --info-bg: #faf5ff;
+    --info-border: #9333ea;
+    --info-text: #581c87;
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+    --shadow-md: 0 4px 10px -2px rgba(16, 24, 40, 0.10), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
+    --shadow-lg: 0 12px 24px -6px rgba(16, 24, 40, 0.14);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --header-grad: linear-gradient(135deg, #042f2e 0%, #134e4a 45%, #0e7490 100%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #0b1220;
+      --card-bg: #131c2e;
+      --text-main: #eef2f7;
+      --text-muted: #9aa7bb;
+      --border-color: #2b3a52;
+      --accent: #2dd4bf;
+      --accent-strong: #5eead4;
+      --accent-soft: #0f2f33;
+      --link: #5eead4;
+      --link-hover: #99f6e4;
+      --kbd-bg: #1d2940;
+      --kbd-border: #3b4d6b;
+      --code-bg: #182338;
+      --code-border: #2b3a52;
+      --note-bg: #14233f;
+      --note-border: #60a5fa;
+      --note-text: #dbeafe;
+      --tip-bg: #0f2a1d;
+      --tip-border: #4ade80;
+      --tip-text: #d1fae5;
+      --warn-bg: #2b2110;
+      --warn-border: #fbbf24;
+      --warn-text: #fef3c7;
+      --info-bg: #251a38;
+      --info-border: #c084fc;
+      --info-text: #f3e8ff;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 10px -2px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 12px 24px -6px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  /* ============ Base ============ */
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--page-bg);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  img { max-width: 100%; height: auto; }
+
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    border-radius: 3px;
+  }
+  a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
+
+  /* Highly visible keyboard focus */
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* ============ Skip link ============ */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    display: inline-block;
+    background: var(--accent);
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 0 var(--radius-sm) 0;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    left: 0;
+    color: #ffffff;
+    outline-offset: 0;
+  }
+
+  /* ============ Header ============ */
+  header.hero {
+    background: var(--header-grad);
+    color: #ffffff;
+    padding: 3.25rem 1.5rem 3rem;
+    text-align: center;
+  }
+
+  .hero-inner { max-width: 60rem; margin: 0 auto; }
+
+  .hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .hero .tagline {
+    margin: 0 auto 1.25rem;
+    max-width: 46rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: #cffafe;
+  }
+
+  .hero .version-badge {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .hero .quick-facts {
+    margin: 1.5rem auto 0;
+    max-width: 52rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .hero .quick-facts .fact {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* ============ Layout ============ */
+  .layout {
+    display: flex;
+    gap: 2rem;
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    align-items: flex-start;
+  }
+
+  /* Sidebar */
+  aside.toc {
+    flex: 0 0 15.5rem;
+    position: sticky;
+    top: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 1.1rem 1.1rem 1.2rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+
+  aside.toc .toc-title {
+    margin: 0 0 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  aside.toc ol {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.95rem;
+  }
+  aside.toc li { margin: 0.3rem 0; }
+  aside.toc a { text-decoration: none; }
+  aside.toc a:hover { text-decoration: underline; }
+
+  /* Main column */
+  main { flex: 1 1 auto; min-width: 0; }
+
+  /* ============ Sections & headings ============ */
+  section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.6rem 1.7rem;
+    margin-bottom: 1.6rem;
+    scroll-margin-top: 1.2rem;
+  }
+
+  h2 {
+    margin: 0 0 1rem;
+    font-size: 1.65rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+
+  h3 {
+    margin: 1.6rem 0 0.6rem;
+    font-size: 1.22rem;
+    line-height: 1.3;
+    color: var(--accent-strong);
+  }
+
+  h4 {
+    margin: 1.2rem 0 0.4rem;
+    font-size: 1.05rem;
+  }
+
+  p { margin: 0.6rem 0; }
+  ul, ol { margin: 0.6rem 0 0.6rem 1.4rem; padding-left: 0.3rem; }
+  li { margin: 0.35rem 0; }
+
+  strong { font-weight: 700; }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  .back-to-top {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* ============ Callouts ============ */
+  .callout {
+    border-radius: var(--radius-md);
+    border: 1px solid;
+    padding: 0.9rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .callout .callout-title {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .callout.note { background: var(--note-bg); border-color: var(--note-border); color: var(--note-text); }
+  .callout.tip { background: var(--tip-bg); border-color: var(--tip-border); color: var(--tip-text); }
+  .callout.warning { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn-text); }
+  .callout.info { background: var(--info-bg); border-color: var(--info-border); color: var(--info-text); }
+
+  /* ============ kbd & code ============ */
+  kbd {
+    display: inline-block;
+    background: var(--kbd-bg);
+    border: 1px solid var(--kbd-border);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    padding: 0.05rem 0.45rem;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: 0.85em;
+    line-height: 1.5;
+    white-space: nowrap;
+    color: var(--text-main);
+  }
+  code {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 5px;
+    padding: 0.1rem 0.4rem;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: 0.88em;
+  }
+
+  /* ============ Tables ============ */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin: 1rem 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    font-size: 0.97rem;
+  }
+  caption {
+    text-align: left;
+    font-weight: 700;
+    padding: 0.6rem 0.9rem;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    border-bottom: 1px solid var(--border-color);
+  }
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+  }
+  thead th {
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-weight: 700;
+  }
+  tbody tr:last-child th,
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: rgba(14, 116, 144, 0.05); }
+
+  /* ============ Footer ============ */
+  footer {
+    border-top: 1px solid var(--border-color);
+    background: var(--card-bg);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  footer p { margin: 0.35rem 0; }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; padding-top: 1.2rem; }
+    aside.toc {
+      position: static;
+      flex: 1 1 auto;
+      width: 100%;
+      max-height: none;
+    }
+  }
+
+  /* ============ Print ============ */
+  @media print {
+    aside.toc { display: none; }
+    .skip-link { display: none; }
+    body { background: #ffffff; color: #000000; font-size: 11pt; }
+    section { break-inside: avoid; box-shadow: none; border-color: #999; }
+    a { color: #000; }
+    header.hero { background: #fff; color: #000; border-bottom: 3px solid #333; }
+    .hero .tagline { color: #333; }
+    .hero .version-badge { border-color: #666; color: #333; background: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Privacy Policy</h1>
+    <p class="tagline">
+      How Productivity Companion handles your information — simply and transparently.
+      Your data stays on your device by default, and online features only see what you
+      choose to send them.
+    </p>
+    <div>
+      <span class="version-badge">Version 1.0</span>
+      <span class="version-badge">Last updated: August 9, 2026</span>
+      <span class="version-badge">Effective date: August 9, 2026</span>
+    </div>
+    <div class="quick-facts">
+      <span class="fact">No accounts required</span>
+      <span class="fact">No tracking or ads</span>
+      <span class="fact">No telemetry</span>
+      <span class="fact">Local by default</span>
+      <span class="fact">You stay in control</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= LAYOUT ================= -->
+<div class="layout">
+
+  <!-- ================= TABLE OF CONTENTS ================= -->
+  <aside class="toc" aria-labelledby="toc-heading">
+    <p class="toc-title" id="toc-heading">Contents</p>
+    <nav aria-label="Privacy policy contents">
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#not-collected">What we do not collect</a></li>
+        <li><a href="#local-data">Data stored on your device</a></li>
+        <li><a href="#online-data">Data processed online</a></li>
+        <li><a href="#permissions">Microphone, camera &amp; files</a></li>
+        <li><a href="#usage">How your data is used</a></li>
+        <li><a href="#retention">Retention &amp; deletion</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main id="main-content">
+
+    <!-- ============ 1. INTRODUCTION ============ -->
+    <section id="introduction" aria-labelledby="introduction-heading">
+      <h2 id="introduction-heading">1. Introduction</h2>
+      <p class="lead">
+        Productivity Companion is an all-in-one productivity application for Windows,
+        built with privacy and accessibility in mind. This policy explains, in plain
+        language, what information the app uses, where it goes, and how you stay in
+        control.
+      </p>
+      <p>
+        The app works in two distinct ways, and this distinction is the most important
+        thing to understand about your privacy:
+      </p>
+      <ul>
+        <li>
+          <strong>Locally</strong> — many features (notes, links, recordings, conversions,
+          document reading, device information) run entirely on your computer. Your content
+          never leaves your device.
+        </li>
+        <li>
+          <strong>Online, on request</strong> — a few features (the AI assistant, image
+          generation, translation, online transcription, text to speech, weather, currency,
+          and Wikipedia search) send only the specific input you give them to a third-party
+          service to process your request. Nothing is sent automatically or in the
+          background for these features.
+        </li>
+      </ul>
+      <p>
+        The developers of Productivity Companion do <strong>not</strong> operate servers that
+        collect, store, or analyze your data, and the app contains no advertising, no
+        analytics, and no tracking technology.
+      </p>
+      <div class="callout note">
+        <span class="callout-title">Note</span>
+        This policy covers the Productivity Companion application itself. The Microsoft Store
+        delivers the app and operates under
+        <a href="https://privacy.microsoft.com/privacystatement">Microsoft's own privacy statement</a>,
+        and each online service used by the app operates under its own privacy policy, which
+        you can review on the service's website.
+      </div>
+    </section>
+
+    <!-- ============ 2. NOT COLLECTED ============ -->
+    <section id="not-collected" aria-labelledby="not-collected-heading">
+      <h2 id="not-collected-heading">2. What we do not collect</h2>
+      <p>To be clear about what this app is <em>not</em> doing, here is what we do not collect:</p>
+      <ul>
+        <li><strong>No accounts or registration</strong> — you never need to create an account, provide a name, email address, or any other personal information to use the app.</li>
+        <li><strong>No telemetry or analytics</strong> — the app does not report your usage habits, crashes, or feature statistics to the developers.</li>
+        <li><strong>No advertising</strong> — the app contains no ads and no advertising identifiers (such as advertising IDs) are read or shared.</li>
+        <li><strong>No tracking across apps or websites</strong> — there are no trackers, cookies, or fingerprinting technologies in the app.</li>
+        <li><strong>No automatic uploads</strong> — your notes, links, documents, recordings, and settings stay on your device unless you explicitly use an online feature with that content.</li>
+        <li><strong>No background monitoring</strong> — the app does not monitor your activity, location, or other applications.</li>
+      </ul>
+      <div class="callout tip">
+        <span class="callout-title">Good to know</span>
+        The only automatic network activity is a lightweight <strong>update check</strong> on
+        startup (when enabled) that asks the project's version page whether a newer version
+        exists. It sends no personal data — only a standard request, like visiting a webpage.
+      </div>
+    </section>
+
+    <!-- ============ 3. LOCAL DATA ============ -->
+    <section id="local-data" aria-labelledby="local-data-heading">
+      <h2 id="local-data-heading">3. Data stored on your device</h2>
+      <p>
+        The following information is stored <strong>only on your computer</strong>, inside the
+        app's private data folder. It is never transmitted anywhere by the app.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <caption>Information stored locally on your device</caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Details</th>
+              <th scope="col">Used for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Your content</strong></td>
+              <td>Notes and web links you create (stored as <code>notes.json</code> and <code>links.json</code>), recordings you make, files you export or convert.</td>
+              <td>Providing the Notes Manager, Link Saver, Voice Recorder, and conversion features.</td>
+            </tr>
+            <tr>
+              <td><strong>Preferences &amp; settings</strong></td>
+              <td>Theme choice, interface language, text-to-speech engine and voice, recorder options, transcription mode, feature order, and update-check preference.</td>
+              <td>Remembering your choices between sessions.</td>
+            </tr>
+            <tr>
+              <td><strong>Downloaded components</strong></td>
+              <td>OCR engine and language data (Tesseract), offline transcription models (Whisper), and the Pandoc document-conversion engine.</td>
+              <td>Making OCR, offline transcription, and document conversion work without an internet connection.</td>
+            </tr>
+            <tr>
+              <td><strong>Caches &amp; temporary files</strong></td>
+              <td>Cached voice lists, temporary conversion files, OCR and AI-analysis caches, and other short-lived working files.</td>
+              <td>Speeding up repeated operations and keeping the app responsive.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Where this data lives</h3>
+      <p>
+        On Windows, the app stores its data in a private folder inside your user profile, for
+        example:
+      </p>
+      <p>
+        <code>%LOCALAPPDATA%\Packages\com.blindtechnexus.productivitycompanion\LocalState</code>
+      </p>
+      <p>
+        Temporary files use the sibling <code>TempState</code> folder. Because these folders sit
+        inside your Windows user profile, they are protected by your Windows sign-in, just
+        like your Documents folder.
+      </p>
+      <div class="callout note">
+        <span class="callout-title">Note</span>
+        Content you create locally — such as notes and links — is <strong>not encrypted</strong> by
+        the app itself. As with any file on your computer, it is protected by the security of
+        your Windows user account. Keep your account password and device secure.
+      </div>
+    </section>
+
+    <!-- ============ 4. ONLINE DATA ============ -->
+    <section id="online-data" aria-labelledby="online-data-heading">
+      <h2 id="online-data-heading">4. Data processed online</h2>
+      <p>
+        When you use an online feature, the app sends the <strong>specific input you provided</strong>
+        to a third-party service so that service can fulfil your request. The app never sends
+        your notes, links, settings, or unrelated files.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <caption>What is sent online, and when</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">What is sent</th>
+              <th scope="col">When</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>AI Assistant</td><td>Your prompt, and any document or image you attach from the Document Reader or Image Describer.</td><td>Only when you press Send.</td></tr>
+            <tr><td>Image Describer</td><td>The image you choose to describe.</td><td>Only when you request a description.</td></tr>
+            <tr><td>Deep inside with AI (Document Reader)</td><td>A picture of the current PDF page.</td><td>Only when you press the button.</td></tr>
+            <tr><td>Audio Transcriber (online mode)</td><td>The audio file you choose.</td><td>Only when you start an online transcription.</td></tr>
+            <tr><td>Image Generator</td><td>Your text prompt.</td><td>Only when you press Generate.</td></tr>
+            <tr><td>Text Translator</td><td>The text you want translated.</td><td>Only when you press Translate.</td></tr>
+            <tr><td>Text To Speech / Read Aloud</td><td>The text to be spoken.</td><td>Only when you generate audio.</td></tr>
+            <tr><td>Weather</td><td>The city name you typed.</td><td>Only when you fetch weather.</td></tr>
+            <tr><td>Currency Converter</td><td>The two currency codes and the amount.</td><td>Only when you press Convert.</td></tr>
+            <tr><td>Wikipedia Search</td><td>Your search term.</td><td>Only when you press Search.</td></tr>
+            <tr><td>Global Radio Player</td><td>The streaming URL you paste (the app simply plays it).</td><td>Only when you press Play.</td></tr>
+            <tr><td>Feedback form</td><td>Your name, optional email address, and the message you write.</td><td>Only when you press Send.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warning">
+        <span class="callout-title">Please consider</span>
+        Content you send to online features (prompts, documents, images, audio, text) is
+        processed by the service you are using, so treat it the way you would treat content
+        you post or upload on the internet. Do not upload documents containing sensitive
+        personal information unless you are comfortable with that. If you need full privacy,
+        use the <strong>offline</strong> alternatives where available (offline transcription,
+        offline OCR, local document reading, and recording).
+      </div>
+      <p>
+        All communication with these services happens over <strong>encrypted HTTPS
+        connections</strong>. As with any internet use, the services themselves may receive
+        standard technical information such as your IP address and the time of the request,
+        in accordance with their own policies.
+      </p>
+    </section>
+
+    <!-- ============ 5. PERMISSIONS ============ -->
+    <section id="permissions" aria-labelledby="permissions-heading">
+      <h2 id="permissions-heading">5. Microphone, camera &amp; file access</h2>
+      <p>
+        The app only uses your hardware and files <strong>when you explicitly ask it to</strong>, and
+        only for the task at hand.
+      </p>
+      <ul>
+        <li>
+          <strong>Microphone</strong> — used only by the <strong>Voice Recorder</strong> while you are
+          actively recording. The recording is saved as a file on your computer. The
+          microphone is never used in the background or without your action.
+        </li>
+        <li>
+          <strong>Camera</strong> — the <strong>Image Describer</strong> can take a picture with your
+          webcam when you choose "Take picture". The photo is captured only for that purpose
+          and stays on your device unless you ask the AI to describe it.
+        </li>
+        <li>
+          <strong>File access</strong> — the app only opens files you select yourself (documents,
+          images, audio, video). It does not scan, index, or upload your files, and it
+          requests no broad file-system permissions.
+        </li>
+        <li>
+          <strong>Documents</strong> — the Document Reader processes the file you open on your
+          device. It is sent online only if you explicitly use an online feature on it (Ask
+          AI assistant, Deep inside with AI, translation, or online speech).
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ 6. USAGE ============ -->
+    <section id="usage" aria-labelledby="usage-heading">
+      <h2 id="usage-heading">6. How your data is used</h2>
+      <ul>
+        <li><strong>Local data</strong> is used solely to make the features work: to save and retrieve your notes and links, to remember your preferences, and to power conversions and recordings.</li>
+        <li><strong>Online data</strong> is used solely to fulfil the specific request you make (translate this text, describe this image, transcribe this audio, and so on).</li>
+        <li><strong>Feedback</strong> is read by the developers to improve the application and to respond to you.</li>
+        <li>Your data is <strong>never sold</strong>, rented, or traded, and it is never used for advertising.</li>
+      </ul>
+      <p>
+        The developers do not have access to your local data, and they do not operate any
+        service that receives it. Everything local stays local.
+      </p>
+    </section>
+
+    <!-- ============ 7. RETENTION ============ -->
+    <section id="retention" aria-labelledby="retention-heading">
+      <h2 id="retention-heading">7. Retention &amp; deletion</h2>
+      <h3>Local data</h3>
+      <p>
+        Your local data stays on your device until <strong>you</strong> delete it. You can:
+      </p>
+      <ul>
+        <li>Delete individual notes or links inside the Notes Manager and Link Saver.</li>
+        <li>Delete downloaded models, caches, and settings with <strong>Settings → More → Clear productivity companion cache</strong>.</li>
+        <li>Uninstall the application to remove the app itself (the Store uninstaller will remove the app's files; content you created is stored in your profile, so you may also want to delete the app's data folder manually if you wish to remove it completely).</li>
+      </ul>
+      <h3>Online data</h3>
+      <ul>
+        <li>Files uploaded to the AI service (documents, audio) are <strong>deleted after your request is processed</strong>, and the app cleans them up automatically.</li>
+        <li>Conversation history in the AI Assistant is kept <strong>in memory only while the window is open</strong>; it is not written to your disk by the app, and it disappears when you close the window.</li>
+        <li>Other online services may retain the content you send them for their own operational purposes, according to their own privacy policies, which you can review on each service's website.</li>
+      </ul>
+      <div class="callout tip">
+        <span class="callout-title">Tip</span>
+        If you care about privacy above all, choose the <strong>offline</strong> options: download the
+        Whisper model for offline transcription and Tesseract for offline OCR once, and most of
+        your daily work never touches the internet at all.
+      </div>
+    </section>
+
+    <!-- ============ 8. SECURITY ============ -->
+    <section id="security" aria-labelledby="security-heading">
+      <h2 id="security-heading">8. Security</h2>
+      <ul>
+        <li><strong>Encrypted connections</strong> — all network communication uses HTTPS, so data in transit is encrypted.</li>
+        <li><strong>No passwords to protect</strong> — because the app has no accounts, there are no account credentials for anyone to steal.</li>
+        <li><strong>Minimal data</strong> — the app collects the smallest amount of information needed to work, which reduces risk by design.</li>
+        <li><strong>Your responsibility</strong> — local files are protected by your Windows user account. Use a strong sign-in, keep your system updated, and be mindful when uploading sensitive documents to online features.</li>
+      </ul>
+      <p>
+        If you believe you have found a security issue in the application, please report it
+        through the in-app feedback form so the developers can address it promptly.
+      </p>
+    </section>
+
+    <!-- ============ 9. CHILDREN ============ -->
+    <section id="children" aria-labelledby="children-heading">
+      <h2 id="children-heading">9. Children's privacy</h2>
+      <p>
+        Productivity Companion is a general-purpose productivity tool and is not directed at
+        children. It does not knowingly collect personal information from children, and it
+        does not require any personal information to use. If you believe a child has provided
+        personal information through the feedback form, please contact the developers (see
+        <a href="#contact">section 11</a>) and it will be removed.
+      </p>
+    </section>
+
+    <!-- ============ 10. CHANGES ============ -->
+    <section id="changes" aria-labelledby="changes-heading">
+      <h2 id="changes-heading">10. Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time as the application evolves — for example,
+        when a feature is added, changed, or removed. When we do:
+      </p>
+      <ul>
+        <li>The <strong>Last updated</strong> and <strong>Effective date</strong> at the top of this page are revised.</li>
+        <li>The updated policy is included with the next app update, and this page is updated in the app's documentation.</li>
+      </ul>
+      <p>
+        Your continued use of the application after an update means you accept the revised
+        policy. We encourage you to check this page from time to time (open <strong>Help</strong> from
+        the home screen, or press <kbd>F1</kbd>).
+      </p>
+    </section>
+
+    <!-- ============ 11. CONTACT ============ -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">11. Contact us</h2>
+      <p>
+        We are happy to answer any questions you have about this policy or about your data.
+        The easiest ways to reach us:
+      </p>
+      <ul>
+        <li><strong>In-app feedback</strong> — press <strong>Send feedback</strong> (<kbd>Alt</kbd>+<kbd>K</kbd>) on the home screen. Your name, optional email, and message go directly to the developers.</li>
+        <li><strong>Telegram</strong> — open <strong>About</strong> (<kbd>Alt</kbd>+<kbd>A</kbd>) and press <strong>Join our telegram channel</strong>.</li>
+      </ul>
+      <div class="callout info">
+        <span class="callout-title">In summary</span>
+        Productivity Companion keeps your data on your device by default, sends only what you
+        choose to send when you use an online feature, never sells or advertises, and gives you
+        simple ways to delete everything. Thank you for trusting us with your productivity.
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p><strong>Productivity Companion</strong> — Privacy Policy</p>
+  <p>Version 1.0 &bull; Last updated: August 9, 2026 &bull; Made and maintained in Nepal</p>
+  <p>
+    This policy applies to Productivity Companion 26.1 and later. The in-app Help
+    (<kbd>F1</kbd>) opens the application's user guide, which links to this document.
+  </p>
+</footer>
+
+</body>
+</html>
