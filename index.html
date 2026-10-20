@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The complete user guide and tutorial for Productivity Companion, an all-in-one, screen-reader-friendly productivity suite for Windows.">
-<title>Productivity Companion — Complete User Guide &amp; Tutorial (Version 26.3)</title>
+<title>Productivity Companion — Complete User Guide &amp; Tutorial (Version 26.4)</title>
 <style>
   /* ============ Design tokens ============ */
   :root {
@@ -191,7 +191,7 @@
 
   .hero .quick-facts {
     margin: 1.5rem auto 0;
-    max-width: 56rem;
+    max-width: 58rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -506,20 +506,21 @@
   <div class="hero-inner">
     <h1>Productivity Companion</h1>
     <p class="tagline">
-      Your all-in-one productivity toolkit for Windows: read documents, convert media and files,
-      have live voice chats with AI, record screens and audio, scan and generate QR codes,
-      transcribe recordings, manage notes, and much more — all in one accessible, screen-reader-friendly application.
+      Your all-in-one productivity suite for Windows: read and analyze documents, edit media with over 40 specialized tools,
+      have live duplex voice chats with AI with real-time screen sharing, read curated tech articles, record screens and audio,
+      scan and generate QR codes, transcribe recordings, manage notes, and stay informed with the Notification Center — all in one accessible, screen-reader-friendly application.
     </p>
     <div>
-      <span class="version-badge">Version 26.3</span>
+      <span class="version-badge">Version 26.4</span>
       <span class="store-badge">Available on the Microsoft Store</span>
     </div>
     <div class="quick-facts">
-      <span class="fact">30 built-in tools</span>
+      <span class="fact">31 built-in tools</span>
+      <span class="fact">40+ media editor tools</span>
       <span class="fact">7 interface languages</span>
       <span class="fact">Light, dark &amp; system themes</span>
       <span class="fact">Adjustable font sizes</span>
-      <span class="fact">Screen reader friendly</span>
+      <span class="fact">Screen reader friendly (NVDA, JAWS &amp; Narrator)</span>
       <span class="fact">Offline-capable</span>
     </div>
   </div>
@@ -560,35 +561,37 @@
       <h2 id="introduction-heading">1. Introduction</h2>
       <p class="lead">
         Welcome to <strong>Productivity Companion</strong> — a rich desktop application
-        that brings 30 everyday productivity tools together into a clean, modern, and
+        that brings 31 everyday productivity tools together into a clean, modern, and
         accessible window. Whether you want to read an e-book aloud with natural speech,
-        record your screen and audio, have a live voice conversation with Gemini AI, convert
+        edit media using over 40 editing operations, share your screen while having a live
+        voice conversation with Gemini AI, read the latest curated technology news, convert
         complex documents between formats, scan or generate QR codes, transcribe recordings,
         or organize your notes, Productivity Companion has a dedicated tool ready for you.
       </p>
       <p>
-        The application is built from the ground up with <strong>accessibility as a first-class feature</strong>.
+        The application is engineered from the ground up with <strong>accessibility as a first-class feature</strong>.
         It works seamlessly with full keyboard navigation and popular Windows screen readers such as
         <strong>NVDA</strong>, <strong>JAWS</strong>, and <strong>Narrator</strong>. Controls are clearly labelled,
-        dialogs announce their results, focus is never lost, and every single feature can be comfortably
-        used without touching a mouse.
+        dialogs announce their results, focus is never lost, embedded web viewers are forced into Chromium's accessibility
+        tree, and every single feature can be comfortably used without touching a mouse.
       </p>
       <h3>What can you do with it?</h3>
       <ul>
-        <li><strong>Read and deeply analyze documents</strong> — PDF, EPUB, Word (DOCX), and PowerPoint (PPTX) files with plain text and formatted views, TTS, OCR, and AI analysis that renders equations in accessible MathML.</li>
+        <li><strong>Read and deeply analyze documents</strong> — PDF, EPUB, Word (DOCX), and PowerPoint (PPTX) files with plain text and formatted views, TTS, OCR, automatic background page prefetching, and AI analysis that renders equations in accessible MathML.</li>
         <li><strong>Unified document conversion</strong> — convert text to PDF, Word to PDF, Word to EPUB, HTML to Markdown, and Markdown to HTML.</li>
-        <li><strong>Conversational &amp; live AI</strong> — chat with an AI assistant with web search and thinking modes, have real-time duplex voice conversations in Live Assistant with camera vision, get scene-by-scene video descriptions, and generate images.</li>
-        <li><strong>Audio &amp; screen recording</strong> — record your display, microphone, and soundcard (WASAPI loopback) into video or audio files, or record voice memos with pause, resume, and segment continuation.</li>
+        <li><strong>Conversational &amp; live AI</strong> — chat with an AI assistant with web search, thinking mode, file attachments, and complete chat history management; have real-time duplex voice conversations in Live Assistant with camera vision and desktop screen sharing; get scene-by-scene video descriptions; and generate AI images.</li>
+        <li><strong>Curated tech articles</strong> — browse the latest technology news and articles with markdown formatting, syntax-highlighted code snippets with copy buttons, offline caching, and accessible embedded web viewing.</li>
+        <li><strong>Comprehensive audio &amp; video editing</strong> — a redesigned editor featuring over 40 specialized tools: multi-clip timeline, trimming with hotkeys, cutting, splitting, merging with crossfade, 5-band parametric equalizer, compressor/limiter, noise reduction &amp; AI denoise, background music with auto-ducking, text and image watermarks, picture-in-picture, chroma key, subtitles, transitions, EBU R128 loudness normalization, LUT color grading, video stabilization, and animated GIF creation.</li>
+        <li><strong>Audio &amp; screen recording</strong> — record your display, microphone, and soundcard (WASAPI loopback) into video or audio files with independent microphone and soundcard volume adjustments (0%–200%), or record voice memos with pause, resume, and segment continuation.</li>
         <li><strong>QR code scanning &amp; generation</strong> — scan QR codes from files or camera in seconds, and generate crisp QR code images from any link or text.</li>
-        <li><strong>Media editing &amp; conversion</strong> — trim, cut with hotkeys, split, merge, adjust volume, add background music, add watermarks, and convert between all major audio, video, and image formats.</li>
-        <li><strong>Stay organized &amp; informed</strong> — manage categorized notes and web links with JSON backups, convert currencies with live exchange rates, check detailed weather forecasts, and view hardware specifications.</li>
+        <li><strong>Stay organized &amp; informed</strong> — manage categorized notes and web links with JSON backups, stay notified with the Notification Center, convert currencies with live exchange rates, check detailed weather forecasts, and inspect comprehensive hardware, power, and battery specifications.</li>
       </ul>
       <h3>Internet vs. offline</h3>
       <p>
         Tools in this guide are marked with an <span class="badge online">Online</span> badge when they
         require an active internet connection, or an <span class="badge offline">Offline</span> badge when
         they run locally on your PC. Tools marked with a dagger (&dagger;) run completely offline after a
-        one-time, in-app download of their engine or language model (such as Tesseract OCR, Pandoc, or Whisper models).
+        one-time, in-app download of their engine or language model (such as Tesseract OCR, Pandoc, full FFmpeg modules, or Whisper models).
       </p>
     </section>
 
@@ -608,7 +611,7 @@
       <h3>Your first launch</h3>
       <p>
         When the application opens for the first time, a <strong>Welcome dialog</strong> greets you.
-        It introduces the latest features in Version 26.3 and offers two buttons:
+        It introduces the latest features in Version 26.4 and offers two buttons:
       </p>
       <ul>
         <li><strong>What's new</strong> (<kbd>Alt</kbd>+<kbd>N</kbd>) — opens the detailed release notes.</li>
@@ -621,9 +624,8 @@
 
       <div class="callout note">
         <span class="callout-title">Automatic update checks</span>
-        On startup, Productivity Companion can quietly verify if a newer version is available in the Microsoft Store.
-        If an update is found, a prompt lets you open the Store page directly to install it. You can toggle this check
-        in <a href="#settings">Settings → General</a>.
+        On startup, Productivity Companion quietly verifies if a newer version is available in the Microsoft Store.
+        If an update is found, a prompt lets you open the Store page directly to install it. If you are already running the latest version, no intrusive dialog is displayed. You can toggle automatic update checks in <a href="#settings">Settings → General</a>.
       </div>
     </section>
 
@@ -631,7 +633,7 @@
     <section id="home-screen" aria-labelledby="home-screen-heading">
       <h2 id="home-screen-heading">3. The home screen</h2>
       <p>
-        The home screen provides a centralized, clutter-free hub for all 30 built-in tools.
+        The home screen provides a centralized, clutter-free hub for all 31 built-in tools.
         The instructions are clearly announced at the top:
       </p>
       <blockquote>
@@ -645,7 +647,7 @@
       </ol>
       <p>
         When a feature window opens, the home screen neatly minimizes or hides. When you close the feature
-        or press its <strong>Back</strong> button (<kbd>Alt</kbd>+<kbd>B</kbd> / <kbd>Alt</kbd>+<kbd>F4</kbd>),
+        or press its <strong>Back</strong> button (<kbd>Alt</kbd>+<kbd>B</kbd>, <kbd>Esc</kbd>, or <kbd>Alt</kbd>+<kbd>F4</kbd>),
         the home screen immediately restores focus right where you left off.
       </p>
 
@@ -667,26 +669,26 @@
         </li>
       </ol>
       <p>
-        Your custom order is automatically saved across sessions. To return to standard alphabetical order,
+        Your custom order is automatically saved across sessions in your application data directory. To return to standard alphabetical order,
         simply activate the <strong>Reset features order</strong> button (<kbd>Alt</kbd>+<kbd>R</kbd>).
       </p>
 
       <h3>Home screen layout &amp; navigation</h3>
       <p>
-        The home screen interface has been streamlined into a clean top-and-bottom layout:
+        The home screen interface provides a clean, streamlined top-and-bottom layout:
       </p>
       <div class="button-map">
         <div class="item">
           <span class="name">…More options <span>(<kbd>Alt</kbd>+<kbd>M</kbd>)</span></span>
-          <p>Opens a popup menu containing Settings, Help and privacy, What's new, Send feedback, and Open in Microsoft Store.</p>
+          <p>Opens a popup menu containing Settings, Notification center, Help and privacy, What's new, Send feedback, and Open app in Microsoft Store.</p>
         </div>
         <div class="item">
           <span class="name">Help (Direct Key) <span>(<kbd>F1</kbd>)</span></span>
-          <p>Pressing <kbd>F1</kbd> anywhere on the home screen immediately opens this comprehensive documentation in your web browser.</p>
+          <p>Pressing <kbd>F1</kbd> anywhere on the home screen immediately opens this comprehensive documentation in your default web browser.</p>
         </div>
         <div class="item">
           <span class="name">Reset features order <span>(<kbd>Alt</kbd>+<kbd>R</kbd>)</span></span>
-          <p>Re-sorts the entire feature list back into standard alphabetical order.</p>
+          <p>Re-sorts the entire feature list back into standard alphabetical sorting.</p>
         </div>
         <div class="item">
           <span class="name">Exit <span>(<kbd>Alt</kbd>+<kbd>E</kbd>)</span></span>
@@ -698,6 +700,7 @@
       <p>Clicking <strong>…More options</strong> or pressing <kbd>Alt</kbd>+<kbd>M</kbd> presents the following actions:</p>
       <ul>
         <li><strong>Settings</strong> (<kbd>Alt</kbd>+<kbd>I</kbd>) — open the comprehensive settings notebook.</li>
+        <li><strong>Notification center</strong> (<kbd>Alt</kbd>+<kbd>T</kbd>) — open the notification center to view important updates, announcements, and news from developers.</li>
         <li><strong>Help and privacy</strong> (<kbd>Alt</kbd>+<kbd>H</kbd>) — open the Help &amp; Privacy dialog to view documentation, privacy statement, version details, and update checks.</li>
         <li><strong>What's new</strong> (<kbd>Alt</kbd>+<kbd>N</kbd>) — view the latest release notes and new feature summaries.</li>
         <li><strong>Send feedback</strong> (<kbd>Alt</kbd>+<kbd>K</kbd>) — send direct suggestions, bug reports, or translation inquiries to the development team.</li>
@@ -710,7 +713,7 @@
       <h2 id="settings-heading">4. Settings</h2>
       <p>
         Open <strong>Settings</strong> from the <strong>…More options</strong> menu (<kbd>Alt</kbd>+<kbd>M</kbd> → Settings or <kbd>Alt</kbd>+<kbd>I</kbd>)
-        to configure themes, font sizing, display languages, voice engines, offline models, and default paths.
+        to configure themes, font sizing, display languages, voice engines, offline models, recording volume levels, and default paths.
         The settings window is arranged in scrollable notebook tabs. Use <kbd>Ctrl</kbd>+<kbd>Tab</kbd> and
         <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd> to move between tabs. Press <strong>OK</strong> (<kbd>Enter</kbd>)
         to save changes or <strong>Cancel</strong> (<kbd>Esc</kbd>) to discard.
@@ -718,7 +721,7 @@
 
       <h3>1. General</h3>
       <ul>
-        <li><strong>Application theme</strong> — select <strong>Light</strong>, <strong>Dark</strong>, or <strong>System default</strong>. The theme applies instantly.</li>
+        <li><strong>Application theme</strong> — select <strong>Light</strong>, <strong>Dark</strong>, or <strong>System default</strong>. The theme applies instantly across all windows while preserving native control roles for screen readers.</li>
         <li><strong>Application font size</strong> — choose <strong>Normal</strong>, <strong>Large</strong>, or <strong>Extra Large</strong> to scale fonts across all dialogs and screens for optimal visual comfort.</li>
         <li><strong>Program display language</strong> — choose among <strong>English</strong>, <strong>नेपाली (Nepali)</strong>, <strong>Türkçe (Turkish)</strong>, <strong>Tiếng Việt (Vietnamese)</strong>, <strong>Français (French)</strong>, <strong>हिन्दी (Hindi)</strong>, or <strong>தமிழ் (Tamil)</strong>. Changing language or font size prompts you to restart the app.</li>
         <li><strong>Automatically check for updates on startup</strong> — toggle automatic background update notifications.</li>
@@ -752,6 +755,7 @@
         <li><strong>Channel</strong> — <strong>Mono</strong> or <strong>Stereo</strong>.</li>
         <li><strong>Sampling rate</strong> — <strong>44100 Hz</strong> or <strong>48000 Hz</strong>.</li>
         <li><strong>Record as</strong> — <strong>WAV</strong> (uncompressed) or <strong>MP3</strong> (compressed).</li>
+        <li><strong>Microphone volume (%)</strong> — adjust microphone recording input gain from <strong>0% to 200%</strong> (default 100%).</li>
       </ul>
 
       <h3>5. Screen recorder</h3>
@@ -762,6 +766,8 @@
           video (<code>mp4</code>, <code>mkv</code>, <code>avi</code>, <code>mov</code>, <code>webm</code>, <code>wmv</code>) or
           audio (<code>mp3</code>, <code>wav</code>, <code>aac</code>, <code>m4a</code>, <code>flac</code>, <code>ogg</code>).
         </li>
+        <li><strong>Sound card volume (%)</strong> — adjust system playback loopback recording volume from <strong>0% to 200%</strong> (default 100%).</li>
+        <li><strong>Microphone volume (%)</strong> — adjust microphone input volume during screen recording from <strong>0% to 200%</strong> (default 100%).</li>
       </ul>
 
       <h3>6. Conversion</h3>
@@ -786,6 +792,7 @@
         <li><strong>Auto-scroll speed</strong> (0 = slow, 9 = fast).</li>
         <li><strong>Extraction profile</strong> (<code>default</code>, <code>simple</code>, <code>detailed</code>, <code>ocr_only</code>, <code>clean</code>).</li>
         <li><strong>Default export directory</strong> and <strong>Enable TTS chunking</strong>.</li>
+        <li><strong>Automatically analyze the next page in deep inside web viewer</strong> — when enabled, the reader silently pre-analyzes the next page in the background while you read the current page, ensuring instantaneous page turns in the Deep Inside viewer.</li>
       </ul>
 
       <h3>9. More</h3>
@@ -798,11 +805,11 @@
     <section id="feature-overview" aria-labelledby="feature-overview-heading">
       <h2 id="feature-overview-heading">5. Feature overview</h2>
       <p>
-        Productivity Companion provides <strong>30 built-in tools</strong> categorized into five groups:
+        Productivity Companion provides <strong>31 built-in tools</strong> categorized into five groups:
       </p>
       <div class="table-wrap">
         <table>
-          <caption>All 30 Productivity Companion features at a glance</caption>
+          <caption>All 31 Productivity Companion features at a glance</caption>
           <thead>
             <tr>
               <th scope="col">Group</th>
@@ -812,12 +819,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td rowspan="4">AI &amp; knowledge</td><td>AI Assistant</td><td>Conversational AI with web search, thinking mode, file attachments, and dynamic titles.</td><td><span class="badge online">Online</span></td></tr>
-            <tr><td>Live Assistant</td><td>Real-time voice chat with Gemini, camera visual streaming, and low-latency duplex audio.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td rowspan="5">AI &amp; knowledge</td><td>AI Assistant</td><td>Conversational AI with web search, thinking mode, file attachments, dynamic titles, and full chat history management.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Live Assistant</td><td>Real-time voice chat with Gemini, camera visual streaming, and live desktop screen sharing.</td><td><span class="badge online">Online</span></td></tr>
+            <tr><td>Tech Articles</td><td>Browse curated technology news with markdown formatting, code block copy buttons, and offline caching.</td><td><span class="badge online">Online</span>*</td></tr>
             <tr><td>Wikipedia Search</td><td>Search Wikipedia articles across languages, view random articles, and listen or export.</td><td><span class="badge online">Online</span></td></tr>
             <tr><td>Text Translator</td><td>Translate text between world languages with auto-detection and file import.</td><td><span class="badge online">Online</span></td></tr>
 
-            <tr><td rowspan="5">Reading &amp; documents</td><td>Document Reader</td><td>Read PDF, EPUB, DOCX, PPTX with MathML AI analysis, TTS, OCR, bookmarks, and split view.</td><td><span class="badge offline">Offline</span>*</td></tr>
+            <tr><td rowspan="5">Reading &amp; documents</td><td>Document Reader</td><td>Read PDF, EPUB, DOCX, PPTX with MathML AI analysis, background page prefetch, TTS, OCR, bookmarks, and split view.</td><td><span class="badge offline">Offline</span>*</td></tr>
             <tr><td>Document Converter</td><td>Unified converter: Text to PDF, Word to PDF, Word to EPUB, HTML to Markdown, and Markdown to HTML.</td><td><span class="badge offline">Offline</span>†</td></tr>
             <tr><td>Image OCR</td><td>Extract text from images using Tesseract, save as text file, translate, or generate audio.</td><td><span class="badge offline">Offline</span>†</td></tr>
             <tr><td>PDF to Image</td><td>Export all pages of a PDF as 300 DPI high-resolution PNG images.</td><td><span class="badge offline">Offline</span></td></tr>
@@ -825,11 +833,11 @@
 
             <tr><td rowspan="9">Audio &amp; video</td><td>Text To Speech converter</td><td>Convert text to speech using Google TTS, Microsoft Edge voices, or 30 Gemini AI voices.</td><td><span class="badge online">Online</span></td></tr>
             <tr><td>Audio Transcriber</td><td>Transcribe speech in audio files — online AI or offline faster-whisper models.</td><td>Both</td></tr>
-            <tr><td>Voice Recorder</td><td>Record microphone input to WAV or MP3 with pause, continue, delete, and playback.</td><td><span class="badge offline">Offline</span></td></tr>
-            <tr><td>Screen Recorder</td><td>Record screen display, microphone, and soundcard system audio into video or audio files.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Voice Recorder</td><td>Record microphone input to WAV or MP3 with volume gain (0–200%), pause, continue, delete, and playback.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Screen Recorder</td><td>Record screen display, microphone, and soundcard system audio into video or audio files with independent volume gains.</td><td><span class="badge offline">Offline</span></td></tr>
             <tr><td>Video to Audio converter</td><td>Extract audio tracks from video files (mp3, wav, m4a) with batch conversion.</td><td><span class="badge offline">Offline</span></td></tr>
             <tr><td>Audio to Video converter</td><td>Turn audio tracks into 16:9 or 9:16 videos with custom image backgrounds.</td><td><span class="badge offline">Offline</span></td></tr>
-            <tr><td>Audio Video Editor</td><td>Trim, cut with [ and ], split, merge, add music/watermarks, and adjust volume or echo.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Audio Video Editor</td><td>Comprehensive media studio featuring 40+ editing tools: timeline, trim, cut, split, merge, EQ, compressor, AI denoise, chroma key, PIP, subtitles, and effects.</td><td><span class="badge offline">Offline</span>†</td></tr>
             <tr><td>Video Describer</td><td>Get AI-powered scene-by-scene video descriptions and ask follow-up questions.</td><td><span class="badge online">Online</span></td></tr>
             <tr><td>Global Radio Player</td><td>Stream live global radio stations, search stations, and pin favorites.</td><td><span class="badge online">Online</span></td></tr>
 
@@ -845,14 +853,14 @@
             <tr><td>Link Saver</td><td>Save and organize web links into categories with browser launching and JSON backup.</td><td><span class="badge offline">Offline</span></td></tr>
             <tr><td>Currency Converter</td><td>Convert amounts between 40 global currencies using live exchange rates.</td><td><span class="badge online">Online</span></td></tr>
             <tr><td>Weather</td><td>Get current conditions and multi-day forecasts for any city with clipboard export.</td><td><span class="badge online">Online</span></td></tr>
-            <tr><td>Device Information</td><td>View organized hardware and software specifications with easy copy actions.</td><td><span class="badge offline">Offline</span></td></tr>
+            <tr><td>Device Information</td><td>View organized hardware, software, power, and detailed battery specifications with easy copy actions.</td><td><span class="badge offline">Offline</span></td></tr>
           </tbody>
         </table>
       </div>
       <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
       <p style="font-size:0.9rem; color:var(--text-muted);">
-        * Document Reader reads files offline; its AI analysis, online translation, and speech synthesis require connection.
-        † These tools run offline after a one-time in-app component download (Tesseract OCR, Whisper model, or Pandoc).
+        * Document Reader reads files offline; its AI analysis, online translation, and speech synthesis require connection. Tech Articles caches articles offline once fetched.
+        † These tools run offline after a one-time in-app component download (Tesseract OCR, Whisper model, Pandoc, or full FFmpeg modules).
       </p>
     </section>
 
@@ -867,11 +875,12 @@
           A conversational assistant built into Productivity Companion. Ask questions, brainstorm,
           summarize complex documents, solve math problems, or attach files.
           The assistant features intelligent key rotation, web search integration, thinking mode,
-          and dynamic window title updates matching the user's initial question.
+          dynamic window title updates matching the user's initial question, and complete <strong>Chat History</strong> management.
         </p>
         <h4>How to use it</h4>
         <ol class="steps">
-          <li>Open <strong>AI Assistant</strong> from the home screen.</li>
+          <li>Open <strong>AI Assistant</strong> from the home screen. The home view presents <strong>New conversation</strong> and <strong>Chat history</strong>.</li>
+          <li>Click <strong>New conversation</strong> to start a fresh chat session.</li>
           <li>Optionally check <strong>Web search</strong> to ground answers in real-time online data, or <strong>Thinking</strong> for deep multi-step reasoning.</li>
           <li>Use <strong>Attach file</strong> to attach any text, PDF, image, audio, or video file directly with your question.</li>
           <li>Type your question and press <kbd>Enter</kbd> or click <strong>Send</strong>. The button toggles to <strong>Stop response</strong> during generation.</li>
@@ -886,6 +895,17 @@
             </ul>
           </li>
         </ol>
+        <h4>Managing Chat History</h4>
+        <p>
+          Click <strong>Chat history</strong> (<kbd>Alt</kbd>+<kbd>H</kbd>) on the AI Assistant home screen to manage your saved chats:
+        </p>
+        <ul>
+          <li><strong>Browse and resume:</strong> Navigate through past conversations displaying title and last opened date, then press <kbd>Enter</kbd> or double-click to continue chatting.</li>
+          <li><strong>Context actions:</strong> Right-click or press <kbd>Shift</kbd>+<kbd>F10</kbd> on any conversation to <strong>Open chat</strong> or <strong>Delete chat</strong>.</li>
+          <li><strong>Export history:</strong> Save your complete chat history to a JSON backup file for archiving or transfer.</li>
+          <li><strong>Import history:</strong> Restore previous chat histories from a JSON file.</li>
+          <li><strong>Clear history:</strong> Safely clear all chat sessions with confirmation.</li>
+        </ul>
       </article>
 
       <!-- LIVE ASSISTANT -->
@@ -893,8 +913,8 @@
         <h3 id="live-assistant-heading">6.2 Live Assistant <span class="badge online">Online</span></h3>
         <p>
           Experience real-time, low-latency conversational voice AI powered by Gemini.
-          Live Assistant enables natural, two-way voice conversations with audio streaming
-          and optional live camera vision.
+          Live Assistant enables natural, two-way voice conversations with audio streaming,
+          optional live camera vision, and <strong>desktop screen sharing</strong>.
         </p>
         <h4>How to use it</h4>
         <ol class="steps">
@@ -902,14 +922,49 @@
           <li>Click <strong>Start conversation</strong> (<kbd>Alt</kbd>+<kbd>S</kbd>) to begin the live audio stream.</li>
           <li>Speak naturally into your microphone — the assistant streams its spoken answer back in real time.</li>
           <li>Toggle <strong>Turn on microphone</strong> (<kbd>Alt</kbd>+<kbd>M</kbd>) to mute or unmute during the call.</li>
-          <li>Toggle <strong>Turn on camera</strong> (<kbd>Alt</kbd>+<kbd>C</kbd>) to stream real-time frames from your webcam, allowing Gemini to see objects, documents, screens, or surroundings and describe them to you.</li>
+          <li>Toggle <strong>Turn on camera</strong> (<kbd>Alt</kbd>+<kbd>C</kbd>) to stream real-time frames from your webcam, allowing Gemini to see objects, documents, or surroundings and describe them to you.</li>
+          <li>Toggle <strong>Share screen</strong> (<kbd>Alt</kbd>+<kbd>S</kbd>) to stream real-time frames of your computer display with cursor tracking. Gemini can see your active desktop, open windows, applications, code, websites, and documents and help you troubleshoot or explain what is on screen.</li>
+          <li>Click <strong>Report inappropriate response</strong> (<kbd>Alt</kbd>+<kbd>R</kbd>) while a live conversation is running if the assistant generates problematic, harmful, or inappropriate content to submit a report for review.</li>
           <li>Click <strong>Stop conversation</strong> (<kbd>Alt</kbd>+<kbd>S</kbd>) or <strong>Back</strong> to end the session.</li>
         </ol>
+        <div class="callout tip">
+          <span class="callout-title">Camera and screen share switching</span>
+          Camera streaming and screen sharing are mutually exclusive. When screen sharing is checked, the webcam automatically pauses; checking camera turns off screen sharing. When both are unchecked, Gemini interacts purely via voice.
+        </div>
+      </article>
+
+      <!-- TECH ARTICLES -->
+      <article aria-labelledby="tech-articles-heading">
+        <h3 id="tech-articles-heading">6.3 Tech Articles <span class="badge online">Online</span> / <span class="badge offline">Offline</span> (Cached)</h3>
+        <p>
+          Stay informed with curated technology news, tutorials, and articles designed for screen reader accessibility and tech enthusiasts.
+          Articles are retrieved from a cloud storage service and cached locally so you can read previously opened articles even without an active internet connection.
+        </p>
+        <h4>How to use it</h4>
+        <ol class="steps">
+          <li>Open <strong>Tech articles</strong> from the home screen.</li>
+          <li>Browse the list of available articles sorted in descending chronological order (latest published first). The list displays <strong>Title</strong>, <strong>Author</strong>, and <strong>Published Date</strong>.</li>
+          <li>Press <kbd>Enter</kbd> (or double-click) on an article to open it in the built-in accessible web viewer.</li>
+          <li>In the article reader, read rich semantic content with clean typography, styled headings, lists, blockquotes, and pre-formatted code blocks equipped with one-click <strong>Copy</strong> buttons. External links open directly in your default web browser.</li>
+          <li>Press <kbd>Esc</kbd> or click <strong>Close</strong> to return to the articles list.</li>
+          <li>Use the context menu (<kbd>Shift</kbd>+<kbd>F10</kbd> or right-click) on any article in the list to:
+            <ul>
+              <li><strong>Read article</strong> — open the full article in the reader.</li>
+              <li><strong>Refresh articles</strong> — fetch the latest publications from the server (<kbd>F5</kbd>).</li>
+              <li><strong>Copy article title</strong> — copy the headline to your clipboard.</li>
+              <li><strong>Back to home</strong> — return to the application home screen (<kbd>Esc</kbd>).</li>
+            </ul>
+          </li>
+        </ol>
+        <div class="callout info">
+          <span class="callout-title">Accessible HTML5 rendering</span>
+          The Tech Articles viewer uses Chromium's forced accessibility tree, ensuring complete heading navigation, link jumping, and continuous reading in JAWS, NVDA, and Narrator without silence or control trapping.
+        </div>
       </article>
 
       <!-- WIKIPEDIA SEARCH -->
       <article aria-labelledby="wikipedia-heading">
-        <h3 id="wikipedia-heading">6.3 Wikipedia Search <span class="badge online">Online</span></h3>
+        <h3 id="wikipedia-heading">6.4 Wikipedia Search <span class="badge online">Online</span></h3>
         <p>
           Search Wikipedia across languages, read article summaries, fetch random articles, and export or listen to content.
         </p>
@@ -924,7 +979,7 @@
 
       <!-- TEXT TRANSLATOR -->
       <article aria-labelledby="translator-heading">
-        <h3 id="translator-heading">6.4 Text Translator <span class="badge online">Online</span></h3>
+        <h3 id="translator-heading">6.5 Text Translator <span class="badge online">Online</span></h3>
         <p>
           Translate text between a broad selection of global languages with automatic source language detection.
         </p>
@@ -961,11 +1016,21 @@
           <li><strong>Search</strong> — Find (<kbd>Ctrl</kbd>+<kbd>F</kbd>), next match (<kbd>F3</kbd>), previous match (<kbd>Shift</kbd>+<kbd>F3</kbd>).</li>
         </ul>
 
-        <h4>AI integration</h4>
+        <h4>AI integration &amp; background prefetching</h4>
         <ul>
           <li><strong>Ask AI assistant</strong> (<kbd>Alt</kbd>+<kbd>K</kbd>) — opens AI Assistant with your active document automatically attached, ready for in-depth questions, section explanations, or summaries.</li>
           <li><strong>Deep inside with AI</strong> (<kbd>Alt</kbd>+<kbd>I</kbd>, PDF only) — transforms complex PDF pages into pristine accessible presentations where mathematical equations and formulas are converted to <strong>MathML</strong> for flawless screen reader announcement, charts and tables become structured data, and images receive descriptive alt text.</li>
+          <li><strong>Automatic background page prefetching:</strong> While you read in the Deep Inside web viewer, the reader automatically analyzes the next page in the background. When you advance to the next page, the content loads instantly without waiting for AI processing. This can be toggled in Settings → Document reader.</li>
           <li><strong>Open in web viewer</strong> (<kbd>Alt</kbd>+<kbd>W</kbd>, EPUB/PPTX) — launches a smart formatted web view retaining original styling and structure.</li>
+        </ul>
+
+        <h4>Cache management</h4>
+        <p>
+          Manage cached OCR and Deep Inside analysis data via the <strong>Tools</strong> menu:
+        </p>
+        <ul>
+          <li><strong>Delete OCR cache:</strong> Clear OCR Cache for Current Page, Clear OCR Cache for This Document, or Clear All OCR Cache.</li>
+          <li><strong>Delete Deep Inside cache:</strong> Delete Deep Inside Cache for Current Page, Delete Deep Inside Cache for This Document, or Delete All Deep Inside Cache.</li>
         </ul>
 
         <h4>Speech, translation &amp; OCR</h4>
@@ -1079,13 +1144,14 @@
       <article aria-labelledby="recorder-heading">
         <h3 id="recorder-heading">8.3 Voice Recorder <span class="badge offline">Offline</span></h3>
         <p>
-          Record microphone audio directly with pause, resume, segment continuation, and in-app playback.
+          Record microphone audio directly with pause, resume, segment continuation, deletion, and in-app playback.
         </p>
         <ol class="steps">
           <li>Open <strong>Voice Recorder</strong>.</li>
+          <li>Adjust recording options in Settings → Recorder: choose format (WAV/MP3), channels (mono/stereo), sampling rate (44100/48000 Hz), and <strong>Microphone volume (0% to 200%)</strong>.</li>
           <li>Click <strong>Start recording</strong> (<kbd>Alt</kbd>+<kbd>S</kbd>).</li>
           <li>Use <strong>Pause recording</strong> / <strong>Resume recording</strong> (<kbd>Alt</kbd>+<kbd>P</kbd>) as needed.</li>
-          <li>Click <strong>Stop recording</strong> to save the file as WAV or MP3.</li>
+          <li>Click <strong>Stop recording</strong> to save the file.</li>
           <li>After stopping, use <strong>Play</strong> to review, <strong>Continue recording</strong> to append new audio to the file, or <strong>Delete</strong> to discard.</li>
         </ol>
       </article>
@@ -1095,7 +1161,7 @@
         <h3 id="screen-recorder-heading">8.4 Screen Recorder <span class="badge offline">Offline</span></h3>
         <p>
           A full-featured screen and audio recorder capable of recording your computer display,
-          microphone, and soundcard (WASAPI loopback system audio) into video or audio formats.
+          microphone, and soundcard (WASAPI loopback system audio) into video or audio formats with independent volume controls.
         </p>
         <ol class="steps">
           <li>Open <strong>Screen recorder</strong> from the home screen.</li>
@@ -1106,6 +1172,7 @@
               <li><strong>Record soundcard</strong> — captures Windows system audio (games, videos, meeting audio, music) via low-latency WASAPI loopback.</li>
             </ul>
           </li>
+          <li>Adjust volume levels in Settings → Screen recorder: set <strong>Sound card volume (%)</strong> (0%–200%) and <strong>Microphone volume (%)</strong> (0%–200%) for optimal audio balance.</li>
           <li>Choose your output directory and format (Video: <code>mp4</code>, <code>mkv</code>, <code>avi</code>, etc. / Audio: <code>mp3</code>, <code>wav</code>, <code>m4a</code>, etc.).</li>
           <li>Click <strong>Start recording</strong> (<kbd>Alt</kbd>+<kbd>R</kbd>).</li>
           <li>Use <strong>Pause recording</strong> (<kbd>Alt</kbd>+<kbd>P</kbd>) to pause/resume.</li>
@@ -1140,25 +1207,86 @@
 
       <!-- AUDIO VIDEO EDITOR -->
       <article aria-labelledby="editor-heading">
-        <h3 id="editor-heading">8.7 Audio Video Editor <span class="badge offline">Offline</span></h3>
+        <h3 id="editor-heading">8.7 Audio Video Editor <span class="badge offline">Offline</span>†</h3>
         <p>
-          A fast, keyboard-accessible editor for media manipulation.
+          A completely redesigned, powerhouse media editing suite featuring <strong>over 40 specialized editing tools</strong>.
+          Every tool is keyboard-accessible, announces progress clearly to screen readers, and previews results in the integrated media player.
         </p>
+        <div class="callout tip">
+          <span class="callout-title">Full FFmpeg modules setup</span>
+          Basic tools run with Productivity Companion's bundled FFmpeg. Opening the Audio Video Editor prompts to download the full FFmpeg release archive once into the application's LocalState directory, unlocking all advanced filters, codecs, and audio-video processors.
+        </div>
+        <h4>Comprehensive Catalog of 40+ Editing Tools</h4>
+        <div class="grid">
+          <div class="card">
+            <h3>Trimming &amp; Assembly</h3>
+            <p><strong>Trim:</strong> keep audio/video between start/end (<kbd>[</kbd> and <kbd>]</kbd> hotkeys).<br>
+            <strong>Cut:</strong> slice out unwanted segments.<br>
+            <strong>Split:</strong> export specific selections.<br>
+            <strong>Multi-clip timeline:</strong> trim, reorder, cut, and concatenate multi-part projects.<br>
+            <strong>Merge:</strong> join files with crossfade for audio.<br>
+            <strong>Audio trimmer/streamer:</strong> trim with fade and loudness normalization.</p>
+          </div>
+          <div class="card">
+            <h3>Audio Mixing &amp; Dynamics</h3>
+            <p><strong>Background music:</strong> mix music under video with auto-ducking.<br>
+            <strong>Volume adjustment:</strong> scale gain smoothly.<br>
+            <strong>5-Band Equalizer:</strong> parametric frequency tuning.<br>
+            <strong>Compressor / Limiter:</strong> dynamic range control.<br>
+            <strong>Reverb &amp; Echo:</strong> rich acoustic spatial effects.<br>
+            <strong>Multi-track mixer:</strong> multi-channel volume &amp; pan automation.<br>
+            <strong>Channel converter:</strong> convert mono, stereo, and 5.1 surround.</p>
+          </div>
+          <div class="card">
+            <h3>Audio Cleanup &amp; Restoration</h3>
+            <p><strong>Noise tools:</strong> noise gate, reduction, de-esser, and de-reverb.<br>
+            <strong>AI deep noise reduction:</strong> intelligent voice separation.<br>
+            <strong>Silence remover:</strong> auto-trim dead air and pauses.<br>
+            <strong>Loudness normalizer:</strong> EBU R128 two-pass broadcast standard.<br>
+            <strong>Bass &amp; treble boost:</strong> punchy low and crisp high ends.<br>
+            <strong>Stereo width:</strong> widen or narrow the stereo field.</p>
+          </div>
+          <div class="card">
+            <h3>Overlays &amp; Visual Effects</h3>
+            <p><strong>Text &amp; logo watermarks:</strong> position, opacity, and timing.<br>
+            <strong>Text overlay:</strong> font styling, outlines, and animation.<br>
+            <strong>Picture-in-picture (PIP):</strong> overlay videos with scaling.<br>
+            <strong>Chroma key:</strong> green screen background replacement.<br>
+            <strong>Subtitles:</strong> import, edit, burn-in, or mux subtitle tracks.<br>
+            <strong>Delogo:</strong> remove or blur watermarks.<br>
+            <strong>Color correction:</strong> adjust brightness, contrast, vignette, grain, and LUTs.</p>
+          </div>
+          <div class="card">
+            <h3>Speed, Direction &amp; Geometry</h3>
+            <p><strong>Speed changer:</strong> slow motion and fast motion.<br>
+            <strong>Pitch shifter:</strong> change key without altering tempo.<br>
+            <strong>Fade in / fade out:</strong> smooth audio and video transitions.<br>
+            <strong>Transitions:</strong> fade, dissolve, wipe, slide between clips.<br>
+            <strong>Reverse:</strong> play media backwards.<br>
+            <strong>Loop:</strong> repeat clips seamlessly.<br>
+            <strong>Crop, scale &amp; pad:</strong> reshape frame geometry.<br>
+            <strong>Rotate &amp; flip:</strong> rotate 90/180/270 degrees or mirror.<br>
+            <strong>Side-by-side:</strong> split-screen comparison.</p>
+          </div>
+          <div class="card">
+            <h3>Export &amp; Conversion Tools</h3>
+            <p><strong>Video stabilization:</strong> remove camera shake with vidstab.<br>
+            <strong>Video denoise:</strong> hqdn3d and nlmeans smoothing filters.<br>
+            <strong>Sharpen &amp; blur:</strong> adjust visual sharpness.<br>
+            <strong>HDR to SDR tonemapping:</strong> convert HDR footage for SDR screens.<br>
+            <strong>Extract frames:</strong> save thumbnails and video stills.<br>
+            <strong>Create GIF:</strong> animated GIFs with palette optimization.</p>
+          </div>
+        </div>
+
+        <h4>How to edit media</h4>
         <ol class="steps">
-          <li>Open <strong>Audio video editor</strong> and load an audio or video file.</li>
-          <li>Select an operation from the list:
-            <ul>
-              <li><strong>Trim</strong> — keep only the portion between start and end times. (Use <kbd>[</kbd> to mark start and <kbd>]</kbd> to mark end during playback).</li>
-              <li><strong>Cut</strong> — slice out a segment and stitch remaining parts together.</li>
-              <li><strong>Split</strong> — divide the file into distinct files at a chosen timestamp.</li>
-              <li><strong>Add background music</strong> — mix a secondary music track under video with preview support.</li>
-              <li><strong>Add watermark</strong> — place text or image logos onto video frames.</li>
-              <li><strong>Change volume</strong> — increase or reduce audio gain across the entire file or segment.</li>
-              <li><strong>Change echo</strong> — apply an echo acoustic effect.</li>
-              <li><strong>Merge</strong> — join two media files together with preview support.</li>
-            </ul>
-          </li>
-          <li>Preview the result in the integrated media player, then export your edited file.</li>
+          <li>Open <strong>Audio video editor</strong> from the home screen.</li>
+          <li>Click <strong>Open audio or video file</strong> (<kbd>Enter</kbd>) and select your file.</li>
+          <li>The actions list populates with operations compatible with your opened media (audio or video).</li>
+          <li>Highlight your desired action and press <kbd>Enter</kbd>.</li>
+          <li>Configure parameters in the dedicated dialog (e.g. start/end markers, gain sliders, subtitle tracks, or overlay positions). During playback, press <kbd>[</kbd> to mark start and <kbd>]</kbd> to mark end.</li>
+          <li>Preview changes using the built-in player, then click Export/Save to write the output file.</li>
         </ol>
       </article>
 
@@ -1345,14 +1473,47 @@
       <article aria-labelledby="device-info-heading">
         <h3 id="device-info-heading">10.5 Device information <span class="badge offline">Offline</span></h3>
         <p>
-          Inspect detailed hardware and software specifications with organized categorization:
+          Inspect detailed hardware, software, and power specifications with organized categorization:
           Operating System, Processor (with Intel/AMD generation detection), RAM, storage disks, graphics card,
-          battery status, BIOS, motherboard, boot mode, and Secure Boot status.
+          BIOS, motherboard, boot mode, Secure Boot status, and comprehensive <strong>Power &amp; Battery</strong> data.
         </p>
+        <h4>Power &amp; Battery Specifications</h4>
+        <ul>
+          <li><strong>Real-time state:</strong> AC Power (charging, plugged in, fully charged) or Battery Power (discharging).</li>
+          <li><strong>Battery charge level (%):</strong> current remaining battery percentage.</li>
+          <li><strong>Time estimates:</strong> estimated remaining battery life on discharge and full battery runtime estimate.</li>
+          <li><strong>Battery Saver status:</strong> Active or Off.</li>
+          <li><strong>Detailed battery hardware:</strong> Battery name, manufacturer, serial number, chemistry, and technology.</li>
+          <li><strong>Health &amp; wear levels:</strong> Battery condition health % (maximum capacity vs design capacity) and battery lifespan wear level % (degradation).</li>
+          <li><strong>Diagnostics:</strong> Cycle count, current charge/discharge rate, voltage, and manufacture date.</li>
+        </ul>
         <ol class="steps">
           <li>Open <strong>Device information</strong>.</li>
           <li>Browse categories and select any item to view its details.</li>
           <li>Click the copy buttons to place exact hardware specifications onto the clipboard.</li>
+        </ol>
+      </article>
+
+      <!-- NOTIFICATION CENTER -->
+      <article aria-labelledby="notification-center-heading">
+        <h3 id="notification-center-heading">10.6 Notification Center <span class="badge online">Online</span> / <span class="badge offline">Offline</span> (Cached)</h3>
+        <p>
+          Stay informed about critical application news, version updates, maintenance bulletins, and important developer announcements.
+          Notifications are fetched asynchronously from the cloud and stored in local cache so you can read them at any time.
+        </p>
+        <ol class="steps">
+          <li>Open the <strong>…More options</strong> menu on the home screen (<kbd>Alt</kbd>+<kbd>M</kbd>) and choose <strong>Notification center</strong> (<kbd>Alt</kbd>+<kbd>T</kbd>).</li>
+          <li>Browse notifications in the list. Each entry indicates whether it is <strong>Read</strong> or <strong>Unread</strong>, along with its announcement date and message preview.</li>
+          <li>Press <kbd>Enter</kbd> (or double-click) to open the <strong>Notification detail dialog</strong> to read the complete message. The item is automatically marked as Read.</li>
+          <li>From the detail dialog, click <strong>Copy</strong> (<kbd>Alt</kbd>+<kbd>C</kbd>) to place the full notification onto your clipboard, or <strong>Back</strong> (<kbd>Esc</kbd>) to return to the list.</li>
+          <li>Use the context menu (<kbd>Shift</kbd>+<kbd>F10</kbd> or right-click) in the notifications list to:
+            <ul>
+              <li><strong>Open notification</strong> — view full details.</li>
+              <li><strong>Mark as read</strong> — mark item as read.</li>
+              <li><strong>Mark as unread</strong> — revert item status back to unread.</li>
+            </ul>
+          </li>
+          <li>Click <strong>Refresh</strong> (<kbd>Alt</kbd>+<kbd>R</kbd>) to fetch new updates from the server.</li>
         </ol>
       </article>
       <p class="back-to-top"><a href="#main-content">Back to top ↑</a></p>
@@ -1370,12 +1531,45 @@
             <tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr>
           </thead>
           <tbody>
-            <tr><td><kbd>F1</kbd></td><td>Open Help (this guide) in web browser directly from anywhere on the home screen</td></tr>
-            <tr><td><kbd>Alt</kbd>+<kbd>M</kbd></td><td>Open the <strong>…More options</strong> menu (Settings, Help &amp; privacy, What's new, Feedback, Store)</td></tr>
+            <tr><td><kbd>F1</kbd></td><td>Open Help (this guide) in default web browser from anywhere on the home screen</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>M</kbd></td><td>Open the <strong>…More options</strong> menu (Settings, Notification center, Help &amp; privacy, What's new, Feedback, Store)</td></tr>
             <tr><td><kbd>Alt</kbd>+<kbd>R</kbd></td><td>Reset features order to standard alphabetical sorting</td></tr>
             <tr><td><kbd>Alt</kbd>+<kbd>E</kbd></td><td>Exit the application</td></tr>
             <tr><td><kbd>Shift</kbd>+<kbd>F10</kbd> / <kbd>AppKey</kbd></td><td>Open context menu on selected feature (Open, Move up, Move down, Move top, Move bottom)</td></tr>
             <tr><td><kbd>Enter</kbd></td><td>Launch the currently selected feature</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Live Assistant shortcuts</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>Live Assistant keyboard shortcuts</caption>
+          <thead>
+            <tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><kbd>Alt</kbd>+<kbd>S</kbd></td><td>Start / Stop live conversation (also toggles Share screen when focused)</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>M</kbd></td><td>Toggle microphone mute / unmute</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>C</kbd></td><td>Toggle webcam video streaming</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>R</kbd></td><td>Report inappropriate AI response dialog (active during live conversation)</td></tr>
+            <tr><td><kbd>Esc</kbd> / <kbd>Alt</kbd>+<kbd>B</kbd></td><td>Back to home screen</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tech Articles shortcuts</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>Tech Articles keyboard shortcuts</caption>
+          <thead>
+            <tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><kbd>Enter</kbd></td><td>Open and read selected article in accessible web viewer</td></tr>
+            <tr><td><kbd>F5</kbd> / <kbd>Alt</kbd>+<kbd>R</kbd></td><td>Refresh articles from server</td></tr>
+            <tr><td><kbd>Esc</kbd> / <kbd>Alt</kbd>+<kbd>B</kbd></td><td>Close article reader / Back to home screen</td></tr>
+            <tr><td><kbd>Shift</kbd>+<kbd>F10</kbd> / <kbd>AppKey</kbd></td><td>Context menu (Read article, Refresh articles, Copy article title, Back to home)</td></tr>
           </tbody>
         </table>
       </div>
@@ -1415,7 +1609,7 @@
             <tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Go to section / page</td></tr>
             <tr><td><kbd>Alt</kbd>+<kbd>PageUp</kbd> / <kbd>Alt</kbd>+<kbd>PageDown</kbd></td><td>Previous / next section</td></tr>
             <tr><td><kbd>Alt</kbd>+<kbd>K</kbd></td><td>Ask AI assistant with attached document</td></tr>
-            <tr><td><kbd>Alt</kbd>+<kbd>I</kbd></td><td>Deep inside with AI (PDF MathML &amp; diagram analysis)</td></tr>
+            <tr><td><kbd>Alt</kbd>+<kbd>I</kbd></td><td>Deep inside with AI (PDF MathML &amp; diagram analysis with background prefetching)</td></tr>
             <tr><td><kbd>Alt</kbd>+<kbd>W</kbd></td><td>Open in web viewer (EPUB &amp; PPTX)</td></tr>
           </tbody>
         </table>
@@ -1431,14 +1625,18 @@
           <tbody>
             <tr><td><kbd>[</kbd></td><td>Set selection start point during playback</td></tr>
             <tr><td><kbd>]</kbd></td><td>Set selection end point during playback</td></tr>
+            <tr><td><kbd>Space</kbd></td><td>Play / Pause preview playback</td></tr>
+            <tr><td><kbd>Enter</kbd></td><td>Activate selected editing operation</td></tr>
+            <tr><td><kbd>Esc</kbd> / <kbd>Alt</kbd>+<kbd>B</kbd></td><td>Back to editor actions / Return to home screen</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h3>General Windows shortcuts</h3>
+      <h3>General Windows &amp; navigation shortcuts</h3>
       <ul>
-        <li><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> — navigate between controls.</li>
+        <li><kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> — navigate between interactive controls.</li>
         <li><kbd>Enter</kbd> or <kbd>Space</kbd> — activate focused control.</li>
+        <li><kbd>Esc</kbd> — quickly go back from current dialog/window to the previous window.</li>
         <li><kbd>Alt</kbd>+<kbd>F4</kbd> — close current window.</li>
         <li><kbd>Ctrl</kbd>+<kbd>Tab</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd> — cycle between notebook tabs in Settings.</li>
       </ul>
@@ -1449,13 +1647,15 @@
     <section id="accessibility" aria-labelledby="accessibility-heading">
       <h2 id="accessibility-heading">12. Accessibility</h2>
       <p>
-        Productivity Companion is engineered specifically to empower users of all abilities:
+        Productivity Companion is engineered specifically to empower users of all visual, auditory, and motor abilities:
       </p>
       <ul>
-        <li><strong>Screen reader compatibility</strong> — fully compatible with <strong>NVDA</strong>, <strong>JAWS</strong>, and Windows <strong>Narrator</strong>. Accessible names, roles, and status states are announced continuously.</li>
-        <li><strong>Full keyboard independence</strong> — every workflow can be accomplished using standard keyboard shortcuts and arrow keys without mouse intervention.</li>
-        <li><strong>Dynamic typography scaling</strong> — choose between Normal, Large, and Extra Large font sizes in Settings → General.</li>
-        <li><strong>High contrast &amp; dark mode</strong> — seamless adaptation to system dark mode with manual overrides and high-contrast color inversion inside reading tools.</li>
+        <li><strong>Screen reader compatibility</strong> — fully compatible with <strong>NVDA</strong>, <strong>JAWS</strong>, and Windows <strong>Narrator</strong>. Accessible names, roles, states, and live announcements are exposed continuously.</li>
+        <li><strong>Embedded web viewer accessibility with JAWS</strong> — on Windows, embedded web views (used in Deep Inside reading and Tech Articles) use the Microsoft Edge WebView2 backend. Productivity Companion forces Chromium's renderer accessibility tree on via <code>--force-renderer-accessibility</code> at startup, enabling JAWS to read, navigate by headings, and interact with web views just like standard web browsers.</li>
+        <li><strong>Native checkbox and radio button style preservation</strong> — in Windows dark theme, controls maintain their native accessibility styles so JAWS reliably announces them as real checkboxes/radio buttons and reports checked/unchecked status instead of treating them as generic buttons.</li>
+        <li><strong>Full keyboard independence</strong> — every workflow can be accomplished using standard keyboard shortcuts, arrow keys, and mnemonic access keys without mouse intervention. Pressing <kbd>Esc</kbd> reliably navigates back to previous screens.</li>
+        <li><strong>Dynamic typography scaling</strong> — choose between Normal, Large, and Extra Large font sizes in Settings → General to optimize legibility across all dialogs.</li>
+        <li><strong>High contrast &amp; dark mode</strong> — seamless adaptation to system dark mode with manual theme overrides, high-contrast toggles, and inverted color modes inside reading tools.</li>
         <li><strong>MathML mathematical rendering</strong> — equations in PDFs and AI Assistant responses are rendered with proper MathML semantics so screen readers announce equations accurately instead of corrupt text.</li>
         <li><strong>Multilingual interface</strong> — fully translated into English, Nepali, Turkish, Vietnamese, French, Hindi, and Tamil.</li>
       </ul>
@@ -1474,6 +1674,10 @@
           </thead>
           <tbody>
             <tr>
+              <td>"The audio video editor tool requires FFmpeg modules to work"</td>
+              <td>Click <strong>Download now</strong> when prompted. The comprehensive FFmpeg build will be downloaded and extracted into your local application state folder.</td>
+            </tr>
+            <tr>
               <td>"Pandoc is required for conversion"</td>
               <td>Click <strong>Yes</strong> when prompted or open Settings → Conversion → <strong>Download Pandoc</strong>.</td>
             </tr>
@@ -1491,15 +1695,27 @@
             </tr>
             <tr>
               <td>Webcam not detected in Live Assistant or QR Scanner</td>
-              <td>Ensure your camera is connected and Windows Privacy Settings allow desktop app camera access.</td>
+              <td>Ensure your camera is connected and Windows Settings → Privacy &amp; security → Camera allows desktop app access.</td>
             </tr>
             <tr>
               <td>Soundcard loopback audio is silent</td>
-              <td>Verify your Windows default output playback device is active and not muted in Windows Volume Mixer.</td>
+              <td>Verify your Windows default output playback device is active and not muted in Windows Volume Mixer, and verify Soundcard volume in Settings → Screen recorder is set to at least 100%.</td>
+            </tr>
+            <tr>
+              <td>Live Assistant screen sharing shows black screen</td>
+              <td>Ensure your display adapter driver is updated and desktop composition is enabled. Screen sharing automatically tracks your active monitor and cursor.</td>
+            </tr>
+            <tr>
+              <td>Clearing Deep Inside AI cache</td>
+              <td>In Document Reader, open the <strong>Tools</strong> menu → <strong>Delete deep inside cache</strong> to clear cache for the current page, the open document, or all documents.</td>
+            </tr>
+            <tr>
+              <td>Offline access to Tech Articles</td>
+              <td>Previously opened articles and post indexes are cached locally in your application directory and remain readable offline. Press <strong>Refresh</strong> (<kbd>F5</kbd>) when connected to update.</td>
             </tr>
             <tr>
               <td>Resetting app configuration</td>
-              <td>Open Settings → More → <strong>Clear productivity companion cache</strong> to restore settings to defaults. (Notes and links are preserved).</td>
+              <td>Open Settings → More → <strong>Clear productivity companion cache</strong> to restore settings to defaults. (Notes and links are preserved safely).</td>
             </tr>
           </tbody>
         </table>
@@ -1519,10 +1735,10 @@
       <p>We value your ideas, bug reports, and translation contributions:</p>
       <ol class="steps">
         <li>
-          <strong>In-app feedback form</strong> — open <strong>…More options</strong> on the home screen and choose <strong>Send feedback</strong> (<kbd>Alt</kbd>+<kbd>K</kbd>). Enter your name, email address, and feedback message, then click <strong>Send</strong>.
+          <strong>In-app feedback form</strong> — open <strong>…More options</strong> on the home screen and choose <strong>Send feedback</strong> (<kbd>Alt</kbd>+<kbd>K</kbd>). Enter your name, email address, and feedback message, then click <strong>Send</strong>. If you would like to help translate Productivity Companion into your language, include your email so our development team can connect with you.
         </li>
         <li>
-          <strong>Join our Telegram community</strong> — open <strong>…More options</strong> → <strong>Help and privacy</strong> → <strong>About</strong> (<kbd>Alt</kbd>+<kbd>A</kbd>) and click <strong>Join our telegram channel</strong> to connect with the community and developers.
+          <strong>Join our Telegram community</strong> — open <strong>…More options</strong> → <strong>Help and privacy</strong> → <strong>About</strong> and click <strong>Join our telegram channel</strong> to connect with the community and developers.
         </li>
       </ol>
     </section>
@@ -1532,7 +1748,7 @@
       <h2 id="about-heading">15. About &amp; credits</h2>
       <ul>
         <li><strong>Application:</strong> Productivity Companion</li>
-        <li><strong>Current version:</strong> 26.3 (26.3.0.0)</li>
+        <li><strong>Current version:</strong> 26.4 (26.4.0.0)</li>
         <li><strong>Developers:</strong> Bibek Sharma and Sujan Rai (collaborators)</li>
         <li><strong>Origin:</strong> Made and maintained in Nepal</li>
         <li><strong>Distribution:</strong> Microsoft Store</li>
@@ -1547,7 +1763,34 @@
         </li>
       </ul>
 
-      <h3>Release notes — version 26.3</h3>
+      <h3>Release notes — version 26.4</h3>
+      <ul>
+        <li><strong>Audio video editor:</strong> Completely redesigned media workstation featuring 40+ editing tools (multi-clip timeline, trimming, cutting, splitting, merging with crossfade, 5-band parametric EQ, compressor/limiter, noise gate, AI deep denoise, background music with auto-ducking, text/image watermarks, PIP overlay, chroma key, subtitles, transitions, EBU R128 loudness normalization, LUT color correction, video stabilization, animated GIF generation, and more).</li>
+        <li><strong>AI assistant:</strong> Added Chat History (experimental) enabling conversation persistence, resuming past chats, renaming, deleting, exporting chat histories to JSON, importing backups, and clearing all chats.</li>
+        <li><strong>Live assistant:</strong> Added real-time desktop screen sharing with cursor position capture while talking live with Gemini AI, as well as an option to report inappropriate AI responses (<kbd>Alt</kbd>+<kbd>R</kbd> or context menu) for safety review.</li>
+        <li><strong>Document reader:</strong> Added automatic background page analysis in the Deep Inside web viewer for instantaneous page turns, plus Tools menu options to clear Deep Inside cache (current page, active document, or all documents).</li>
+        <li><strong>Tech articles (new feature):</strong> Curated technology news and tutorials with descending chronological ordering, offline caching, and accessible HTML/Markdown reader.</li>
+        <li><strong>Accessibility improvements:Preserved native window styles in dark mode so JAWS no longer treats checkboxes and radio buttons as plain buttons and properly announces their checked/unchecked states.</strong>
+        </li>
+        <li><strong>AI features connectivity:</strong> Resolved connection issues and optimized key rotation across all AI features.</li>
+        <li><strong>Bug fixes and improvements:</strong> Fixed various application bugs and improved general stability.</li>
+      </ul>
+
+      <h4>Release notes — version 26.3.2</h4>
+      <ul>
+        <li>Fixed: The update notification dialog will no longer appear if you are already on the latest version.</li>
+      </ul>
+
+      <h4>Release notes — version 26.3.1</h4>
+      <ul>
+        <li>Resolved connectivity problems affecting AI features.</li>
+        <li>Added comprehensive Power and Battery information in the Device Information feature.</li>
+        <li>Added the Notification Center for delivering important announcements and application information.</li>
+        <li>Added an option to adjust Microphone volume (0% to 200%) in Voice Recorder.</li>
+        <li>Added options for adjusting Microphone volume and Soundcard volume (0% to 200%) in Screen Recorder.</li>
+      </ul>
+
+      <h4>Release notes — version 26.3</h4>
       <ul>
         <li><strong>Document converter (new feature):</strong> A unified document conversion experience consolidating Text to PDF, Word to PDF (with equation and styling support), Word to EPUB, HTML to Markdown, and Markdown to HTML.</li>
         <li><strong>QR code scanner (new feature):</strong> Instantly decode QR codes from local image files or live camera captures.</li>
@@ -1555,9 +1798,10 @@
         <li><strong>Screen recorder (new feature):</strong> Powerful screen and audio recording capable of capturing display, microphone, and soundcard (WASAPI loopback) into video or audio formats with pause, resume, segment continuation, and playback.</li>
         <li><strong>Video describer (new feature):</strong> Detailed scene-by-scene AI descriptions of videos for visually impaired users with follow-up conversation.</li>
         <li><strong>Live assistant (new feature):</strong> Real-time duplex conversational voice chat with Gemini, low-latency audio streaming, and live camera vision.</li>
-        <li><strong>Reorganized home screen UI:</strong> Streamlined home screen with a top <strong>…More options</strong> menu (<kbd>Alt</kbd>+<kbd>M</kbd>) containing Settings, Help &amp; privacy, What's new, Send feedback, and Microsoft Store links, alongside direct <kbd>F1</kbd> help launching.</li>
+        <li><strong>Reorganized home screen UI:</strong> Streamlined home screen with a top <strong>…More options</strong> menu (<kbd>Alt</kbd>+<kbd>M</kbd>) containing Settings, Notification center, Help &amp; privacy, What's new, Send feedback, and Microsoft Store links, alongside direct <kbd>F1</kbd> help launching.</li>
         <li><strong>AI assistant enhancements:</strong> Dynamic window title updates reflecting the user's initial question, direct file attachments, and quick TTS response playback.</li>
         <li><strong>Document reader enhancements:</strong> Dynamic window title displaying the opened document name, and simplified toolbar with advanced actions under More options.</li>
+        <li><strong>Window navigation:</strong> Quick return from current window to previous window using the <kbd>Escape</kbd> key.</li>
         <li><strong>Translation updates:</strong> Added Tamil translation alongside English, Nepali, Turkish, Vietnamese, French, and Hindi.</li>
         <li><strong>Bug fixes and improvements:</strong> Enhanced screen reader accessibility and general stability.</li>
       </ul>
@@ -1596,7 +1840,7 @@
 <!-- ================= FOOTER ================= -->
 <footer>
   <p><strong>Productivity Companion</strong> — Complete User Guide &amp; Tutorial</p>
-  <p>Version 26.3 &bull; Made and maintained in Nepal &bull; Built with accessibility in mind.</p>
+  <p>Version 26.4 &bull; Made and maintained in Nepal &bull; Built with accessibility in mind.</p>
   <p>
     This guide opens from the application's <strong>Help</strong> button (or press <kbd>F1</kbd> on the home screen).
     For feedback and support, use the <strong>Send feedback</strong> option in the app or join our Telegram channel.
